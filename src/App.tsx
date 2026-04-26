@@ -1,0 +1,1112 @@
+import React from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUpRight, Check, Star, Calendar, Clock, Video, Globe, CheckCircle, Volume2, X, Briefcase, Zap, Sparkles, Home, Dumbbell, BookOpen } from "lucide-react";
+
+const App = () => {
+  const [playingVideo, setPlayingVideo] = React.useState(null);
+  const [bonusInView, setBonusInView] = React.useState(false);
+  const bonusRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (bonusRef.current) {
+        const rect = bonusRef.current.getBoundingClientRect();
+        const viewportCenter = window.innerHeight / 2;
+        const elementCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(elementCenter - viewportCenter);
+        setBonusInView(distance < window.innerHeight / 3);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+  <div className="min-h-screen">
+    {/* ── WARNING BANNER ── */}
+    <div className="bg-red-600 text-white py-3 text-center text-sm tracking-wide font-semibold">
+      ⚠️ <span className="text-yellow-300">WARNING: Only 5 Spots Left!</span> "Image Authority Blueprint" Workshop
+    </div>
+
+    {/* ── HERO HEADER ── */}
+    <div className="bg-gray-900 text-white py-4 px-6 md:px-16 lg:px-28 flex items-center justify-center gap-8 border-b-4 border-accent">
+      <h1 className="font-display text-2xl md:text-3xl tracking-wider font-bold">"Image Authority Blueprint" Workshop</h1>
+      <motion.button
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        className="px-8 py-2.5 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full text-sm font-bold hover:brightness-110 transition-all whitespace-nowrap flex-shrink-0 relative overflow-hidden group shadow-lg"
+      >
+        <motion.div
+          animate={{ x: ["-100%", "100%"] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
+        />
+        <span className="relative z-10">Join Now</span>
+      </motion.button>
+    </div>
+
+    {/* ── MAIN HERO ── */}
+    <section className="bg-white text-gray-900 px-6 md:px-16 lg:px-28 py-8 md:py-12 relative overflow-hidden"
+      style={{
+        backgroundImage: `
+          radial-gradient(circle, rgba(0,0,0,0.05) 1.5px, transparent 1.5px)
+        `,
+        backgroundSize: '30px 30px',
+      }}
+    >
+      <div className="flex justify-center mb-6">
+        <div className="inline-block bg-red-100 border-2 border-red-500 rounded-full px-5 py-1.5 text-center">
+          <p className="text-red-600 text-xs md:text-sm font-bold tracking-wider">
+            Attention: Corporate Women, Entrepreneurs, Professionals
+          </p>
+        </div>
+      </div>
+
+      <h1 className="font-display text-3xl md:text-5xl lg:text-6xl leading-tight text-center mb-4 max-w-4xl mx-auto font-bold">
+        <span className="text-green-600">Transform Your Image</span>
+        <br />
+        <span className="text-black">Build Your Authority</span>
+        <br />
+        <span className="text-green-600">In Just 90 Days</span>
+      </h1>
+
+      <p className="text-center text-gray-700 text-base md:text-lg max-w-2xl mx-auto mb-10 font-medium">
+        Working Just 3 Hours A Week | Even Without Professional Styling Experience
+      </p>
+
+      <div className="grid md:grid-cols-[1.2fr_1fr] gap-10 items-start max-w-5xl mx-auto mt-12 md:mt-16">
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="flex justify-center"
+        >
+          <div className="relative" style={{ overflow: "visible", paddingTop: "45px" }}>
+            <div className="w-64 h-64 md:w-72 md:h-72 rounded-full bg-gray-900 shadow-2xl overflow-visible relative mx-auto" style={{ marginTop: "-45px", border: "8px solid #9ca3af" }}>
+              <img
+                src="/src/assets/IMG_9903-Photoroom.png"
+                alt="Nilima Sethia"
+                className="absolute w-full"
+                style={{ height: "140%", top: "-30px", left: "0", objectFit: "cover", objectPosition: "center 45%" }}
+              />
+            </div>
+
+            <div className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-12 py-5 rounded-2xl text-center w-96 shadow-xl border border-gray-800">
+              <p className="font-display text-4xl font-bold text-yellow-400 mb-2">NILIMA SETHIA</p>
+              <p className="text-xs font-semibold text-white mb-1">Founder & Image Authority Coach</p>
+              <p className="text-[11px] text-gray-400">7+ Years | 120+ Transformations</p>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="flex flex-col gap-4"
+        >
+          {/* Workshop Details Grid */}
+            <div className="grid grid-cols-2 gap-4 mt-8">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="bg-white border border-gray-200 rounded-xl p-4 shadow-md transition-all flex items-center gap-4"
+              >
+                <div className="w-12 h-12 bg-gray-900 rounded-full flex-shrink-0 flex items-center justify-center">
+                  <Calendar className="text-white" size={24} />
+                </div>
+                <div className="text-left">
+                  <p className="text-xs text-gray-600 font-semibold uppercase tracking-wider">Date</p>
+                  <p className="text-base font-bold text-gray-900">26 April 2026</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="bg-white border border-gray-200 rounded-xl p-4 shadow-md transition-all flex items-center gap-4"
+              >
+                <div className="w-12 h-12 bg-gray-900 rounded-full flex-shrink-0 flex items-center justify-center">
+                  <Clock className="text-white" size={24} />
+                </div>
+                <div className="text-left">
+                  <p className="text-xs text-gray-600 font-semibold uppercase tracking-wider">Time</p>
+                  <p className="text-base font-bold text-gray-900">4 PM to 7 PM</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+                className="bg-white border border-gray-200 rounded-xl p-4 shadow-md transition-all flex items-center gap-4"
+              >
+                <div className="w-12 h-12 bg-gray-900 rounded-full flex-shrink-0 flex items-center justify-center">
+                  <Video className="text-white" size={24} />
+                </div>
+                <div className="text-left">
+                  <p className="text-xs text-gray-600 font-semibold uppercase tracking-wider">Platform</p>
+                  <p className="text-base font-bold text-gray-900">Zoom</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                className="bg-white border border-gray-200 rounded-xl p-4 shadow-md transition-all flex items-center gap-4"
+              >
+                <div className="w-12 h-12 bg-gray-900 rounded-full flex-shrink-0 flex items-center justify-center">
+                  <Globe className="text-white" size={24} />
+                </div>
+                <div className="text-left">
+                  <p className="text-xs text-gray-600 font-semibold uppercase tracking-wider">Language</p>
+                  <p className="text-base font-bold text-gray-900">Hindi</p>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Red Pricing Button */}
+            <div className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white py-4 px-8 rounded-2xl cursor-pointer shadow-lg transition-all relative overflow-hidden group mt-6 mx-auto max-w-sm">
+              <motion.div
+                animate={{ x: ["-100%", "100%"] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
+              />
+              <div className="relative z-10 text-center">
+                <p className="font-bold text-base mb-1">Register For Workshop Now</p>
+                <p className="text-xs font-semibold">
+                  <span className="line-through text-red-100 mr-2">₹999</span>
+                  <span className="font-bold text-yellow-300">₹199</span>
+                </p>
+              </div>
+            </div>
+
+            {/* Payment Logos - Images */}
+            <div className="flex items-center justify-center gap-3 pt-2">
+              <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
+            </div>
+        </motion.div>
+      </div>
+    </section>
+
+    {/* ── FEATURED IN & STATS ── */}
+    <section>
+      <div className="bg-white w-full py-20 text-center" style={{
+        backgroundImage: `
+          radial-gradient(circle, rgba(0,0,0,0.05) 1.5px, transparent 1.5px)
+        `,
+        backgroundSize: '30px 30px',
+      }}>
+        <h2 className="font-display text-5xl md:text-6xl font-bold mb-16 text-gray-900 px-6">Featured in</h2>
+        <div className="w-full overflow-hidden">
+          <style>{`
+            @keyframes marquee {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-100%); }
+            }
+            .marquee-container {
+              width: 100%;
+              overflow: hidden;
+            }
+            .marquee {
+              display: flex;
+              animation: marquee 70s linear infinite;
+              gap: 60px;
+              padding: 0 30px;
+            }
+            .marquee:hover {
+              animation-play-state: paused;
+            }
+            .marquee-item {
+              flex-shrink-0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: 80px;
+              min-width: 200px;
+            }
+          `}</style>
+          <div className="marquee-container">
+            <div className="marquee">
+              {[
+                "https://www.vectorlogo.zone/logos/forbes/forbes-ar21.svg",
+                "https://www.vectorlogo.zone/logos/cnbc/cnbc-ar21.svg",
+                "https://www.vectorlogo.zone/logos/forbes/forbes-ar21.svg",
+                "https://www.vectorlogo.zone/logos/cnbc/cnbc-ar21.svg",
+                "https://www.vectorlogo.zone/logos/forbes/forbes-ar21.svg",
+                "https://www.vectorlogo.zone/logos/cnbc/cnbc-ar21.svg",
+                "https://www.vectorlogo.zone/logos/forbes/forbes-ar21.svg",
+                "https://www.vectorlogo.zone/logos/cnbc/cnbc-ar21.svg",
+                "https://www.vectorlogo.zone/logos/forbes/forbes-ar21.svg",
+                "https://www.vectorlogo.zone/logos/cnbc/cnbc-ar21.svg",
+                "https://www.vectorlogo.zone/logos/forbes/forbes-ar21.svg",
+                "https://www.vectorlogo.zone/logos/cnbc/cnbc-ar21.svg",
+                "https://www.vectorlogo.zone/logos/forbes/forbes-ar21.svg",
+                "https://www.vectorlogo.zone/logos/cnbc/cnbc-ar21.svg",
+                "https://www.vectorlogo.zone/logos/forbes/forbes-ar21.svg",
+                "https://www.vectorlogo.zone/logos/cnbc/cnbc-ar21.svg",
+                "https://www.vectorlogo.zone/logos/forbes/forbes-ar21.svg",
+                "https://www.vectorlogo.zone/logos/cnbc/cnbc-ar21.svg",
+                "https://www.vectorlogo.zone/logos/forbes/forbes-ar21.svg",
+                "https://www.vectorlogo.zone/logos/cnbc/cnbc-ar21.svg",
+              ].map((logo, i) => (
+                <div key={i} className="marquee-item">
+                  <img src={logo} alt="Brand Logo" className="h-16 object-contain" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-gray-950 px-6 md:px-16 lg:px-28 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-20 max-w-5xl mx-auto">
+          <div className="text-center">
+            <p className="font-display text-6xl md:text-7xl font-bold text-yellow-400 mb-3">3.7M+</p>
+            <p className="text-white text-sm uppercase tracking-widest font-medium">Following</p>
+          </div>
+          <div className="text-center">
+            <p className="font-display text-6xl md:text-7xl font-bold text-yellow-400 mb-3">2M+</p>
+            <p className="text-white text-sm uppercase tracking-widest font-medium">Lives Changed</p>
+          </div>
+          <div className="text-center">
+            <p className="font-display text-6xl md:text-7xl font-bold text-yellow-400 mb-3">30Cr+</p>
+            <p className="text-white text-sm uppercase tracking-widest font-medium">Revenue Generated In Last 36 Months</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ── WHAT YOU'LL LEARN ── */}
+    <section className="bg-white px-6 md:px-16 lg:px-28 py-16 md:py-20" style={{
+      backgroundImage: `radial-gradient(circle, rgba(0,0,0,0.05) 1.5px, transparent 1.5px)`,
+      backgroundSize: '30px 30px',
+    }}>
+      <div className="max-w-5xl mx-auto">
+        <h2 className="font-display text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          What You'll Learn In This Exclusive
+          <br />
+          <span className="text-green-600">3-Hour Workshop</span>
+        </h2>
+
+        <div className="bg-gradient-to-br from-white to-gray-50 border-2 border-green-200 rounded-2xl p-8 md:p-10 mb-8 shadow-lg relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-green-50/50 before:via-transparent before:to-transparent before:pointer-events-none">
+          <div className="space-y-5 relative z-10">
+            {[
+              "HOW TO BUILD YOUR PERSONAL BRAND that sets you apart and positions you as an authority in your industry",
+              "THE 3 PILLARS OF IMAGE TRANSFORMATION that create lasting confidence and credibility",
+              "WARDROBE STRATEGY without breaking the bank - How to build a versatile capsule wardrobe for professional success",
+              "BODY LANGUAGE & PRESENCE techniques to command respect and influence in every room",
+              "SOCIAL MEDIA OPTIMIZATION for personal branding - How to leverage Instagram, LinkedIn to attract clients",
+              "NETWORKING MASTERY - How to make powerful connections and turn them into opportunities",
+              "THE 90-DAY TRANSFORMATION ROADMAP with daily actionable steps you can implement immediately",
+              "COMMON MISTAKES that limit your growth and how to avoid them",
+              "YOUR PERSONALIZED ACTION PLAN - Direct feedback and custom strategy for your specific goals",
+            ].map((item, i) => (
+              <div key={i} className="flex gap-4 items-start">
+                <div className="flex-shrink-0">
+                  <CheckCircle className="text-green-500" size={28} strokeWidth={1.5} />
+                </div>
+                <p className="text-gray-900 text-sm md:text-base font-semibold leading-loose">
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex flex-col items-center gap-6">
+          <div className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white py-5 px-8 rounded-2xl cursor-pointer shadow-lg transition-all relative overflow-hidden group w-full md:w-auto">
+            <motion.div
+              animate={{ x: ["-100%", "100%"] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
+            />
+            <div className="relative z-10 text-center">
+              <p className="font-bold text-base md:text-lg mb-1">Yes, I am Ready to Transform My Image In 90 Days</p>
+              <p className="text-sm font-semibold">
+                <span className="line-through text-red-100 mr-2">₹999</span>
+                <span className="font-bold text-yellow-300">₹199</span>
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-center gap-3">
+            <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ── SUCCESS STORIES ── */}
+    <section className="relative bg-gradient-to-b from-slate-950 via-blue-950 to-slate-950 px-6 md:px-16 lg:px-28 py-20 md:py-28 overflow-hidden">
+      <motion.div
+        animate={{
+          background: [
+            "radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%)",
+            "radial-gradient(circle at 70% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%)",
+            "radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%)",
+          ],
+        }}
+        transition={{ duration: 10, repeat: Infinity }}
+        className="absolute inset-0 pointer-events-none"
+      />
+
+      <div className="relative z-10 max-w-6xl mx-auto">
+        <h2 className="font-display text-center text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white leading-tight">
+          Over <span className="text-yellow-400">1,500+ Success Stories</span> From Real
+          <br />
+          People Just Like You
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 mt-12">
+          {[
+            {
+              id: "ZiGdZYBZF9o",
+              title: "Dream Income achieved in just 1 year!"
+            },
+            {
+              id: "KFTkKIhjkfg",
+              title: "From charging Rs.500 to charging 50K+ per client"
+            },
+            {
+              id: "4Wkoa7eifXc",
+              title: "From struggling with one income to succeeding with multiple incomes"
+            },
+          ].map((card, i) => (
+            <div key={i} className="rounded-xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all block group w-full border-2 border-transparent hover:border-red-400">
+              <div className="bg-red-600 px-4 py-2 text-center text-white text-xs font-bold tracking-widest flex items-center justify-center gap-2 group-hover:bg-red-700 transition-colors">
+                <Volume2 size={16} />
+                CLICK BELOW TO WATCH (SOUND ON)
+              </div>
+              <div className="relative w-full bg-black" style={{ paddingBottom: '56.25%' }}>
+                {playingVideo === card.id ? (
+                  <div className="absolute inset-0 w-full h-full">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={`https://www.youtube.com/embed/${card.id}?autoplay=1`}
+                      title={card.title}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                      allowFullScreen={true}
+                      style={{ border: 'none', display: 'block' }}
+                    />
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => setPlayingVideo(card.id)}
+                    className="absolute inset-0 w-full h-full flex items-center justify-center group/btn cursor-pointer hover:bg-black/40 transition-all"
+                  >
+                    <img
+                      src={`https://img.youtube.com/vi/${card.id}/maxresdefault.jpg`}
+                      alt={card.title}
+                      className="absolute inset-0 w-full h-full object-cover group-hover/btn:brightness-75 transition-all"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover/btn:bg-black/30 transition-all" />
+                    <div className="relative z-10 flex items-center justify-center">
+                      <motion.div
+                        whileHover={{ scale: 1.2 }}
+                        className="w-16 h-16 bg-black/30 rounded-full flex items-center justify-center"
+                      >
+                        <svg className="w-10 h-10 text-white fill-current ml-1" viewBox="0 0 24 24" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))' }}>
+                          <path d="M8 5v14l11-7z" fill="white" />
+                        </svg>
+                      </motion.div>
+                    </div>
+                  </button>
+                )}
+              </div>
+              <div className="bg-yellow-400 px-4 py-3 text-center group-hover:bg-yellow-300 transition-colors flex items-center justify-center min-h-[60px]">
+                <p className="text-slate-900 font-bold text-sm leading-tight">{card.title}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mb-12 w-screen relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] py-4 bg-transparent">
+          <style>{`
+            @keyframes marquee-scroll {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-100%); }
+            }
+            .marquee-wrapper {
+              width: 100%;
+              overflow: hidden;
+              mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+              -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            }
+            .marquee-scroll {
+              display: flex;
+              animation: marquee-scroll 200s linear infinite !important;
+              gap: 20px;
+              padding: 30px 20px;
+              width: fit-content;
+              animation-play-state: running !important;
+              pointer-events: none;
+            }
+            .marquee-scroll:hover {
+              animation-play-state: running !important;
+            }
+            .success-card {
+              flex-shrink-0;
+              min-width: 350px;
+              background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 58, 138, 0.65) 100%);
+              border: 2px solid rgba(59, 130, 246, 0.8);
+              border-radius: 1.25rem;
+              padding: 24px;
+              display: flex;
+              flex-direction: row-reverse;
+              gap: 20px;
+              align-items: center;
+              backdrop-filter: blur(10px);
+              box-shadow: none;
+              transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+              position: relative;
+              overflow: hidden;
+              min-height: 140px;
+            }
+            .success-card::before {
+              content: '';
+              position: absolute;
+              inset: 0;
+              background: linear-gradient(135deg, transparent, rgba(255,255,255,0.05), transparent);
+              opacity: 0;
+              transition: opacity 0.4s ease;
+              pointer-events: none;
+            }
+            .success-card:hover {
+              background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(59, 130, 246, 0.75) 100%);
+              border-color: rgba(59, 130, 246, 1);
+              transform: translateY(-6px) scale(1.05);
+              box-shadow: none;
+            }
+            .success-card:hover::before {
+              opacity: 1;
+            }
+          `}</style>
+
+          <div className="marquee-wrapper">
+            <div className="marquee-scroll">
+              {[
+                { name: "DR NEHA ARORA", title: "MEDICAL DOCTOR", earnings: "50L", desc: "Transformed practice in 6 months", image: "https://i.pravatar.cc/?img=1" },
+                { name: "DR. AMRUTHA", title: "MBBS, MD", earnings: "1L+/2M", desc: "From clinic to digital presence", image: "https://i.pravatar.cc/?img=5" },
+                { name: "GEETHA", title: "HOME-MAKER", earnings: "1.48L", desc: "Built income while at home", image: "https://i.pravatar.cc/?img=9" },
+                { name: "DIPIT PATEL", title: "BARODA", earnings: "17L", desc: "Personal brand to business", image: "https://i.pravatar.cc/?img=13" },
+                { name: "SHRUTI SHARMA", title: "ENTREPRENEUR", earnings: "2.5L+", desc: "Scaled business through image", image: "https://i.pravatar.cc/?img=20" },
+                { name: "ANJALI VERMA", title: "CONSULTANT", earnings: "3L+", desc: "Authority in 90 days", image: "https://i.pravatar.cc/?img=28" },
+                { name: "DR NEHA ARORA", title: "MEDICAL DOCTOR", earnings: "50L", desc: "Transformed practice in 6 months", image: "https://i.pravatar.cc/?img=1" },
+                { name: "DR. AMRUTHA", title: "MBBS, MD", earnings: "1L+/2M", desc: "From clinic to digital presence", image: "https://i.pravatar.cc/?img=5" },
+                { name: "GEETHA", title: "HOME-MAKER", earnings: "1.48L", desc: "Built income while at home", image: "https://i.pravatar.cc/?img=9" },
+                { name: "DIPIT PATEL", title: "BARODA", earnings: "17L", desc: "Personal brand to business", image: "https://i.pravatar.cc/?img=13" },
+                { name: "SHRUTI SHARMA", title: "ENTREPRENEUR", earnings: "2.5L+", desc: "Scaled business through image", image: "https://i.pravatar.cc/?img=20" },
+                { name: "ANJALI VERMA", title: "CONSULTANT", earnings: "3L+", desc: "Authority in 90 days", image: "https://i.pravatar.cc/?img=28" },
+                { name: "DR NEHA ARORA", title: "MEDICAL DOCTOR", earnings: "50L", desc: "Transformed practice in 6 months", image: "https://i.pravatar.cc/?img=1" },
+                { name: "DR. AMRUTHA", title: "MBBS, MD", earnings: "1L+/2M", desc: "From clinic to digital presence", image: "https://i.pravatar.cc/?img=5" },
+                { name: "GEETHA", title: "HOME-MAKER", earnings: "1.48L", desc: "Built income while at home", image: "https://i.pravatar.cc/?img=9" },
+                { name: "DIPIT PATEL", title: "BARODA", earnings: "17L", desc: "Personal brand to business", image: "https://i.pravatar.cc/?img=13" },
+                { name: "SHRUTI SHARMA", title: "ENTREPRENEUR", earnings: "2.5L+", desc: "Scaled business through image", image: "https://i.pravatar.cc/?img=20" },
+                { name: "ANJALI VERMA", title: "CONSULTANT", earnings: "3L+", desc: "Authority in 90 days", image: "https://i.pravatar.cc/?img=28" },
+              ].map((person, i) => (
+                <div key={i} className="success-card">
+                  <img
+                    src={person.image}
+                    alt={person.name}
+                    className="w-32 h-32 rounded-lg flex-shrink-0 object-cover border-3 border-yellow-400 shadow-lg"
+                  />
+                  <div className="text-left flex-1 ml-4">
+                    <p className="text-yellow-400 font-black text-base leading-tight mb-1">{person.name}</p>
+                    <p className="text-blue-100 text-xs mb-2">{person.title}</p>
+                    <p className="text-blue-200 text-xs mb-3 italic">{person.desc}</p>
+                    <div className="bg-yellow-400 text-slate-900 px-3 py-1.5 rounded inline-block">
+                      <p className="font-bold text-sm">{person.earnings}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col items-center gap-6">
+          <div className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-3 px-8 rounded-2xl cursor-pointer shadow-2xl transition-all relative overflow-hidden group max-w-lg">
+            <motion.div
+              animate={{ x: ["-100%", "100%"] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
+            />
+            <div className="relative z-10 text-center" style={{ fontFamily: 'Inter, sans-serif' }}>
+              <p className="font-bold text-base md:text-lg leading-tight whitespace-nowrap text-white">Yes, Ready To Transform Image In 90 Days</p>
+              <p className="text-sm font-bold mt-2">
+                <span className="line-through text-red-100 mr-2">₹999</span>
+                <span className="text-yellow-300">₹199</span>
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-center gap-4">
+            <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-8 object-contain" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ── WHO CAN JOIN ── */}
+    <section className="bg-white px-6 md:px-16 lg:px-28 py-16 md:py-24" style={{
+      backgroundImage: `radial-gradient(circle, rgba(0,0,0,0.05) 1.5px, transparent 1.5px)`,
+      backgroundSize: '30px 30px',
+    }}>
+      <div className="max-w-6xl mx-auto">
+        <h2 className="font-display text-center text-3xl md:text-5xl font-bold mb-4">
+          This Workshop Is Perfect For You If You're:
+        </h2>
+        <p className="text-center text-gray-600 text-lg mb-16 max-w-2xl mx-auto">
+          No matter your background or experience level, this workshop is designed for ambitious women ready to transform
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {[
+            {
+              image: "https://i.pravatar.cc/?img=47&size=300",
+              title: "Corporate Professionals",
+              desc: "Want to stand out, command respect, and accelerate your career growth with powerful personal branding"
+            },
+            {
+              image: "https://i.pravatar.cc/?img=48&size=300",
+              title: "Entrepreneurs & Founders",
+              desc: "Need to build credibility, attract clients, and create a premium brand image for your business"
+            },
+            {
+              image: "https://i.pravatar.cc/?img=49&size=300",
+              title: "Content Creators & Influencers",
+              desc: "Looking to level up your aesthetic, maintain consistency, and attract high-value brand partnerships"
+            },
+            {
+              image: "https://i.pravatar.cc/?img=10&size=300",
+              title: "Homemakers & Parents",
+              desc: "Seeking to reclaim your identity, feel confident, and build a personal brand for opportunities"
+            },
+            {
+              image: "https://i.pravatar.cc/?img=51&size=300",
+              title: "Fitness & Wellness Professionals",
+              desc: "Want to build a premium personal brand and attract high-paying clients in your niche"
+            },
+            {
+              image: "https://i.pravatar.cc/?img=52&size=300",
+              title: "Students & Career Changers",
+              desc: "Ready to make a strong first impression and launch your career with powerful image positioning"
+            },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              className="group bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl p-8 hover:border-red-400 hover:shadow-xl transition-all hover:-translate-y-2"
+            >
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-20 h-20 rounded-full object-cover mb-4 border-4 border-red-400 shadow-md"
+              />
+              <h3 className="font-display text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
+              <p className="text-gray-700 text-sm leading-relaxed">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="flex flex-col items-center gap-6">
+          <div className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-4 px-8 rounded-2xl cursor-pointer shadow-2xl transition-all relative overflow-hidden group max-w-lg">
+            <motion.div
+              animate={{ x: ["-100%", "100%"] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
+            />
+            <div className="relative z-10 text-center" style={{ fontFamily: 'Inter, sans-serif' }}>
+              <p className="font-bold text-base md:text-lg leading-tight whitespace-nowrap text-white">Yes, Ready To Transform Image In 90 Days</p>
+              <p className="text-xs font-bold mt-2">
+                <span className="line-through text-red-100 mr-2">₹999</span>
+                <span className="text-yellow-300">₹199</span>
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-center gap-3">
+            <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-8 object-contain" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ── BONUS PACKAGE ── */}
+    <section ref={bonusRef} className="relative bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900 px-6 md:px-16 lg:px-28 py-20 md:py-28 overflow-hidden">
+      <motion.div
+        animate={{
+          background: [
+            "radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%)",
+            "radial-gradient(circle at 70% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%)",
+            "radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%)",
+          ],
+        }}
+        transition={{ duration: 10, repeat: Infinity }}
+        className="absolute inset-0 pointer-events-none"
+      />
+
+      <div className="relative z-10 max-w-6xl mx-auto text-center">
+        <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-2">
+          LIMITED TIME BONUS PACKAGE
+        </h2>
+        <p className="text-yellow-400 font-black text-2xl md:text-3xl mb-16">
+          (₹8000 VALUE - FREE)
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-8 mb-16" style={{ perspective: '1200px' }}>
+          <style>{`
+            .mbp-mockup-wrapper {
+              width: 100%;
+              height: auto;
+              position: relative;
+              display: flex;
+              transform-style: preserve-3d;
+            }
+            .mbp-container {
+              position: relative;
+              width: 100%;
+              height: auto;
+              padding-top: 58.6%;
+              margin: 0 auto;
+              background-size: contain;
+              background-position: center center;
+              background-repeat: no-repeat;
+              box-sizing: border-box;
+              transform-style: preserve-3d;
+            }
+            .mbp-display {
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              display: block;
+              width: 81.3%;
+              height: 95.2%;
+              margin: 0 auto;
+              background-image: radial-gradient(#cfd0d1, #cfd0d1, #adadae);
+              border: 1px solid #e5e7e9;
+              border-radius: 3.1% / 4%;
+              z-index: 1;
+            }
+            .mbp-display .display-edge {
+              display: block;
+              position: relative;
+              width: 99.37%;
+              height: 99.25%;
+              margin: 0.3% auto;
+              z-index: 2;
+              background-color: #262626;
+              border-radius: 2.75% / 3.8%;
+            }
+            .mbp-display .display-edge .bezel {
+              display: block;
+              position: relative;
+              width: 99.5%;
+              height: 99.2%;
+              margin: auto;
+              top: 0.4%;
+              border-radius: 2.8% / 3.2%;
+              z-index: 3;
+              background-color: #010101;
+            }
+            .mbp-display .display-edge .bezel .display-camera {
+              width: .62%;
+              height: .95%;
+              margin: 1% auto;
+              left: 0;
+              right: 0;
+              position: absolute;
+              border-radius: 50%;
+              z-index: 5;
+              background-color: #303132;
+            }
+            .mbp-display .display-edge .bezel .display-frame {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: absolute;
+              width: 97.65%;
+              height: 89.5%;
+              margin: 0 auto;
+              top: 3.5%;
+              left: 0;
+              right: 0;
+              background-color: #151515;
+              overflow: hidden;
+              z-index: 1;
+            }
+            .mbp-display .display-frame img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              filter: brightness(0.7) contrast(1.1);
+            }
+            .mbp-display .display-frame .frame-content {
+              position: absolute;
+              inset: 0;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              color: white;
+              text-align: center;
+              padding: 20px;
+              background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
+              z-index: 2;
+            }
+            .mbp-display .display-frame .frame-content h3 {
+              font-size: 18px;
+              font-weight: bold;
+              margin-bottom: 12px;
+              line-height: 1.3;
+            }
+            .mbp-display .display-frame .frame-content p {
+              font-size: 13px;
+              line-height: 1.4;
+              opacity: 0.95;
+            }
+            .mbp-display .display-edge .bezel .below-display {
+              display: flex;
+              justify-content: center;
+              position: absolute;
+              width: 100%;
+              height: 4.9%;
+              bottom: .15%;
+              z-index: 3;
+              background-color: #212121;
+              border-bottom-right-radius: 2.5% 70%;
+              border-bottom-left-radius: 2.5% 70%;
+            }
+            .mbp-keyboard {
+              width: 99.75%;
+              height: 7.6%;
+              margin: 0 auto;
+              position: absolute;
+              bottom: 0px;
+              left: 0;
+              right: 0;
+              z-index: 100;
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: center;
+            }
+            .mbp-keyboard .front {
+              width: 100%;
+              height: 37.25%;
+              position: absolute;
+              margin: 0 auto;
+              left: 0;
+              right: 0;
+              top: 0;
+              background: linear-gradient( 90deg, #68696b 0%, #757678 .15%, #a0a1a3 .3%, #cccdcf .5%, #e7e8ea .8%, #e8e9eb 1%, #dfe0e2 1.25%, #d1d2d4 1.5%, #adaeb0 2%, #a4a5a7 3%, #bbbdbf 4%, #e1e1e3 8%, #eaebed 15%, #e9eaec 25%, #e9eaec 75%, #eaebed 85%, #e1e1e3 92%, #bbbdbf 96%, #a4a5a7 97%, #adaeb0 98%, #d1d2d4 98.5%, #dfe0e2 98.75%, #e8e9eb 99%, #e7e8ea 99.2%, #cccdcf 99.5%, #a0a1a3 99.7%, #757678 99.85%, #68696b 100%);
+              z-index: 100;
+              border-radius: 1px;
+              display: flex;
+              justify-content: center;
+              align-items: flex-start;
+            }
+            .mbp-keyboard .opener-left {
+              position: relative;
+              width: 6.917%;
+              height: 65.5%;
+              z-index: 101;
+              border-radius: 0 0 0 20px;
+              background-color: #c1c2c6;
+              background: linear-gradient(180deg, rgba(195, 198, 200, 0.5) 0%, rgba(199, 200, 204, 0.5) 60%, rgba(115, 125, 130, 0.4) 100%), radial-gradient(circle at right, rgba(189, 190, 193, 0.5) 0%, rgba(189, 190, 193, 0.5) 50%, rgba(166, 169, 172, 0.5) 80%, rgba(30, 34, 40, 0.75) 100%);
+              background-blend-mode: darken;
+            }
+            .mbp-keyboard .opener-right {
+              position: relative;
+              width: 6.917%;
+              height: 65.5%;
+              z-index: 101;
+              border-radius: 0 0 20px 0;
+              background-color: #c1c2c6;
+              background: linear-gradient(180deg, rgba(195, 198, 200, 0.5) 0%, rgba(199, 200, 204, 0.5) 60%, rgba(115, 125, 130, 0.4) 100%), radial-gradient(circle at left, rgba(189, 190, 193, 0.5) 0%, rgba(189, 190, 193, 0.5) 50%, rgba(166, 169, 172, 0.5) 80%, rgba(30, 34, 40, 0.75) 100%);
+              background-blend-mode: darken;
+            }
+            .mbp-keyboard .bottom-left {
+              display: block;
+              position: relative;
+              width: 50%;
+              height: 58%;
+              top: 10%;
+              z-index: 99;
+              background: linear-gradient(180deg, #e5e6e9 0%, #909193 65%, #4e4f51 90%, #323234 96%, #29292b 100%);
+              border-bottom-left-radius: 25% 60%;
+            }
+            .mbp-keyboard .bottom-right {
+              display: block;
+              position: relative;
+              width: 50%;
+              height: 58%;
+              top: 10%;
+              z-index: 99;
+              background: linear-gradient(180deg, #e5e6e9 0%, #909193 65%, #4e4f51 90%, #323234 96%, #29292b 100%);
+              border-bottom-right-radius: 25% 60%;
+            }
+            .mbp-shadow {
+              width: 95%;
+              height: 60%;
+              display: flex;
+              justify-content: center;
+            }
+            .mbp-shadow .shadow-left {
+              display: block;
+              position: relative;
+              width: 50%;
+              height: 100%;
+              top: 10%;
+              z-index: 90;
+              background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(8, 11, 17, .85) 2.5%, rgba(29, 32, 36, .4) 15%, rgba(255, 255, 255, 0) 50%);
+              filter: blur(2px);
+              background-blend-mode: multiply;
+              border-top-left-radius: 20% 90%;
+            }
+            .mbp-shadow .shadow-right {
+              display: block;
+              position: relative;
+              width: 50%;
+              height: 100%;
+              top: 10%;
+              z-index: 90;
+              background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(8, 11, 17, .85) 2.5%, rgba(29, 32, 36, .4) 15%, rgba(255, 255, 255, 0) 50%);
+              filter: blur(2px);
+              background-blend-mode: multiply;
+              border-top-right-radius: 20% 90%;
+            }
+          `}</style>
+          {[
+            {
+              image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop",
+              title: "Complete Style Guide PDF",
+              desc: "Master the art of dressing for your body type and skin tone"
+            },
+            {
+              image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&h=300&fit=crop",
+              title: "Personal Brand Checklist",
+              desc: "Step-by-step checklist to build your image authority framework"
+            },
+            {
+              image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop",
+              title: "30-Day Action Plan",
+              desc: "Daily tasks to implement your new image in 30 days"
+            },
+          ].map((bonus, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.15 }}
+              className="group"
+            >
+              <div className="mbp-mockup-wrapper" style={{ transform: i === 0 ? 'rotateY(20deg)' : i === 2 ? 'rotateY(-20deg)' : 'rotateY(0deg)' }}>
+                <div className="mbp-container">
+                  <div className="mbp-display with-glare">
+                    <div className="display-edge">
+                      <div className="bezel">
+                        <div className="display-camera"></div>
+                        <div className="display-frame">
+                          <img src={bonus.image} alt={bonus.title} />
+                          <motion.div
+                            animate={{ opacity: bonusInView ? 0 : 1 }}
+                            transition={{ duration: 0.5 }}
+                            className="absolute inset-0 bg-black flex items-center justify-center z-20"
+                          >
+                            <motion.div
+                              animate={{ scale: [0.8, 1, 0.95] }}
+                              transition={{ duration: 3, repeat: Infinity }}
+                              className="text-white"
+                            >
+                              <svg className="w-16 h-16" viewBox="0 0 100 100" fill="white">
+                                <path d="M50 10C30 10 15 25 15 45c0 15 8 28 20 35 3-2 5-5 6-8-8-6-13-15-13-25 0-18 14-32 32-32s32 14 32 32c0 10-5 19-13 25 1 3 3 6 6 8 12-7 20-20 20-35 0-20-15-35-35-35z"/>
+                              </svg>
+                            </motion.div>
+                          </motion.div>
+                          <motion.div
+                            animate={{ opacity: bonusInView ? 1 : 0 }}
+                            transition={{ duration: 0.5 }}
+                            className="frame-content"
+                          >
+                            <h3>{bonus.title}</h3>
+                            <p>{bonus.desc}</p>
+                          </motion.div>
+                        </div>
+                        <div className="below-display"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mbp-keyboard">
+                    <div className="front">
+                      <div className="opener-left"></div>
+                      <div className="opener-right"></div>
+                    </div>
+                    <div className="bottom-left"></div>
+                    <div className="bottom-right"></div>
+                    <div className="mbp-shadow">
+                      <div className="shadow-left"></div>
+                      <div className="shadow-right"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="flex flex-col items-center gap-6">
+          <a
+            href="https://wa.me/919876543210?text=I%20want%20to%20register%20for%20the%20Image%20Authority%20Blueprint%20Workshop"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-4 px-8 rounded-2xl shadow-2xl transition-all relative overflow-hidden group max-w-lg cursor-pointer block"
+          >
+            <motion.div
+              animate={{ x: ["-100%", "100%"] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
+            />
+            <div className="relative z-10 text-center" style={{ fontFamily: 'Inter, sans-serif' }}>
+              <p className="font-bold text-base md:text-lg leading-tight whitespace-nowrap text-white">Yes, Ready To Transform Image In 90 Days</p>
+              <p className="text-xs font-bold mt-2">
+                <span className="line-through text-red-100 mr-2">₹999</span>
+                <span className="text-yellow-300">₹199</span>
+              </p>
+            </div>
+          </a>
+
+          <div className="flex items-center justify-center gap-3">
+            <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-8 object-contain" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ── BEFORE AND AFTER ── */}
+    <section className="bg-white px-6 md:px-16 lg:px-28 py-20 md:py-28" style={{
+      backgroundImage: `radial-gradient(circle, rgba(0,0,0,0.05) 1.5px, transparent 1.5px)`,
+      backgroundSize: '30px 30px',
+    }}>
+      <div className="max-w-6xl mx-auto">
+        <h2 className="font-display text-center text-3xl md:text-5xl font-bold mb-2 text-gray-900">
+          Before And After Getting
+        </h2>
+        <p className="text-center text-green-600 text-3xl md:text-4xl font-black mb-16">
+          "Image Authority Blueprint"
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6 mb-12">
+          {/* BEFORE */}
+          <div className="relative">
+            <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 z-10">
+              <div className="w-16 h-16 bg-gray-900 rounded-full border-4 border-red-600 flex items-center justify-center shadow-lg">
+                <X className="w-8 h-8 text-red-600" strokeWidth={3} />
+              </div>
+            </div>
+            <div className="bg-gray-900 text-white rounded-2xl p-10 pt-16">
+              <h3 className="text-center text-2xl font-bold text-red-500 mb-8">BEFORE</h3>
+              <div className="space-y-4">
+                {[
+                  "Feeling invisible in professional and social settings",
+                  "Struggling with self-confidence in your appearance",
+                  "Don't know how to dress for your body type and skin tone",
+                  "Missing out on opportunities due to weak personal presence",
+                  "Overwhelmed by fashion choices and styling decisions",
+                  "Comparing yourself to others with 'natural' style",
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-3 items-start">
+                    <div className="text-red-600 font-bold text-lg flex-shrink-0 mt-1">✕</div>
+                    <p className="text-gray-200 text-sm leading-relaxed">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* AFTER */}
+          <div className="relative">
+            <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 z-10">
+              <div className="w-16 h-16 bg-green-700 rounded-full border-4 border-yellow-400 flex items-center justify-center shadow-lg">
+                <Check className="w-8 h-8 text-yellow-400" strokeWidth={3} />
+              </div>
+            </div>
+            <div className="bg-gradient-to-br from-green-900 to-green-800 text-white rounded-2xl p-10 pt-16">
+              <h3 className="text-center text-2xl font-bold text-green-400 mb-8">AFTER</h3>
+              <div className="space-y-4">
+                {[
+                  "Command respect and admiration in every room you walk into",
+                  "Feel confident, poised, and authentically beautiful every day",
+                  "Master the art of dressing for YOUR unique body and coloring",
+                  "Attract high-value opportunities through powerful personal presence",
+                  "Build a signature style that feels effortless and authentic",
+                  "Become a style inspiration others want to emulate",
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-3 items-start">
+                    <div className="text-green-400 font-bold text-lg flex-shrink-0 mt-1">✓</div>
+                    <p className="text-green-50 text-sm leading-relaxed">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col items-center gap-6">
+          <a
+            href="https://wa.me/919876543210?text=I%20want%20to%20register%20for%20the%20Image%20Authority%20Blueprint%20Workshop"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-4 px-8 rounded-2xl shadow-2xl transition-all relative overflow-hidden group max-w-lg cursor-pointer block"
+          >
+            <motion.div
+              animate={{ x: ["-100%", "100%"] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
+            />
+            <div className="relative z-10 text-center" style={{ fontFamily: 'Inter, sans-serif' }}>
+              <p className="font-bold text-base md:text-lg leading-tight whitespace-nowrap text-white">Yes, Ready To Transform Image In 90 Days</p>
+              <p className="text-xs font-bold mt-2">
+                <span className="line-through text-red-100 mr-2">₹999</span>
+                <span className="text-yellow-300">₹199</span>
+              </p>
+            </div>
+          </a>
+
+          <div className="flex items-center justify-center gap-3">
+            <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-8 object-contain" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ── FOOTER ── */}
+    <footer className="px-6 md:px-16 lg:px-28 py-12 border-t border-white/5">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+        <div>
+          <div className="font-display text-xl mb-2">Evolvere7.</div>
+          <p className="text-primary-foreground/40 text-xs">Image & Personal Brand Coaching</p>
+        </div>
+        <div className="flex gap-8">
+          <a href="#" className="text-primary-foreground/40 hover:text-accent text-xs tracking-[0.1em] uppercase transition-colors">Privacy</a>
+          <a href="#" className="text-primary-foreground/40 hover:text-accent text-xs tracking-[0.1em] uppercase transition-colors">Terms</a>
+          <a href="#" className="text-primary-foreground/40 hover:text-accent text-xs tracking-[0.1em] uppercase transition-colors">Contact</a>
+        </div>
+        <p className="text-primary-foreground/30 text-xs">© 2026 Evolvere7. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+  );
+};
+
+export default App;
