@@ -58,14 +58,11 @@
     overflow-y: scroll !important;
     overflow-x: hidden !important;
     scrollbar-gutter: stable !important;
-    height: 100%;
   }
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    overflow-y: scroll !important;
     overflow-x: hidden !important;
-    scrollbar-gutter: stable !important;
     min-height: 100vh;
   }
 
@@ -80,6 +77,29 @@
   section {
     overflow: visible !important;
   }
+}
+
+/* Scrollbar styling */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #999 transparent;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666;
 }
 
 @layer components {
