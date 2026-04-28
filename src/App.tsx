@@ -1,10 +1,53 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, Check, Star, Calendar, Clock, Video, Globe, CheckCircle, Volume2, X, Briefcase, Zap, Sparkles, Home, Dumbbell, BookOpen } from "lucide-react";
+import { ArrowUpRight, Check, Star, Calendar, Clock, Video, Globe, CheckCircle, Volume2, X, Briefcase, Zap, Sparkles, Home, Dumbbell, BookOpen, ChevronDown } from "lucide-react";
+
+const FAQItem = ({ question, answer, isOpen, onToggle }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="border-l-4 border-blue-600 bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300"
+    >
+      <button
+        onClick={onToggle}
+        className="w-full flex items-start gap-4 p-5 text-left hover:bg-gray-100 transition-colors duration-200"
+      >
+        <span className="text-blue-600 font-bold text-xl flex-shrink-0 mt-1">+</span>
+        <span className="font-bold text-base text-gray-900 flex-1">{question}</span>
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+          className="flex-shrink-0 mt-1"
+        >
+          <ChevronDown size={20} className="text-blue-600" />
+        </motion.div>
+      </button>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <div className="px-5 pb-5 pt-0 text-gray-700 text-base leading-relaxed border-t border-gray-200">
+              {answer}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
 
 const App = () => {
   const [playingVideo, setPlayingVideo] = React.useState(null);
   const [bonusInView, setBonusInView] = React.useState(false);
+  const [openFAQ, setOpenFAQ] = React.useState(0);
   const bonusRef = React.useRef(null);
 
   React.useEffect(() => {
@@ -14,7 +57,8 @@ const App = () => {
         const viewportCenter = window.innerHeight / 2;
         const elementCenter = rect.top + rect.height / 2;
         const distance = Math.abs(elementCenter - viewportCenter);
-        setBonusInView(distance < window.innerHeight / 3);
+        // Show content only when section is in the middle of viewport
+        setBonusInView(distance < window.innerHeight / 2.5);
       }
     };
     window.addEventListener('scroll', handleScroll);
@@ -23,7 +67,7 @@ const App = () => {
   }, []);
 
   return (
-  <div className="min-h-screen">
+  <div className="min-h-screen pb-20">
     {/* ── WARNING BANNER ── */}
     <div className="bg-red-600 text-white py-3 text-center text-sm tracking-wide font-semibold">
       ⚠️ <span className="text-yellow-300">WARNING: Only 5 Spots Left!</span> "Image Authority Blueprint" Workshop
@@ -202,7 +246,15 @@ const App = () => {
         `,
         backgroundSize: '30px 30px',
       }}>
-        <h2 className="font-display text-5xl md:text-6xl font-bold mb-16 text-gray-900 px-6">Featured in</h2>
+        <motion.h2
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-16 text-gray-900 px-6"
+        >
+          Featured in
+        </motion.h2>
         <div className="w-full overflow-hidden">
           <style>{`
             @keyframes marquee {
@@ -266,18 +318,36 @@ const App = () => {
 
       <div className="bg-gray-950 px-6 md:px-16 lg:px-28 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-20 max-w-5xl mx-auto">
-          <div className="text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0 }}
+            className="text-center"
+          >
             <p className="font-display text-6xl md:text-7xl font-bold text-yellow-400 mb-3">3.7M+</p>
             <p className="text-white text-sm uppercase tracking-widest font-medium">Following</p>
-          </div>
-          <div className="text-center">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-center"
+          >
             <p className="font-display text-6xl md:text-7xl font-bold text-yellow-400 mb-3">2M+</p>
             <p className="text-white text-sm uppercase tracking-widest font-medium">Lives Changed</p>
-          </div>
-          <div className="text-center">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-center"
+          >
             <p className="font-display text-6xl md:text-7xl font-bold text-yellow-400 mb-3">30Cr+</p>
             <p className="text-white text-sm uppercase tracking-widest font-medium">Revenue Generated In Last 36 Months</p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -288,11 +358,17 @@ const App = () => {
       backgroundSize: '30px 30px',
     }}>
       <div className="max-w-5xl mx-auto">
-        <h2 className="font-display text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+        <motion.h2
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="font-display text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
+        >
           What You'll Learn In This Exclusive
           <br />
           <span className="text-green-600">3-Hour Workshop</span>
-        </h2>
+        </motion.h2>
 
         <div className="bg-gradient-to-br from-white to-gray-50 border-2 border-green-200 rounded-2xl p-8 md:p-10 mb-8 shadow-lg relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-green-50/50 before:via-transparent before:to-transparent before:pointer-events-none">
           <div className="space-y-5 relative z-10">
@@ -307,14 +383,21 @@ const App = () => {
               "COMMON MISTAKES that limit your growth and how to avoid them",
               "YOUR PERSONALIZED ACTION PLAN - Direct feedback and custom strategy for your specific goals",
             ].map((item, i) => (
-              <div key={i} className="flex gap-4 items-start">
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05, duration: 0.4 }}
+                className="flex gap-4 items-start"
+              >
                 <div className="flex-shrink-0">
                   <CheckCircle className="text-green-500" size={28} strokeWidth={1.5} />
                 </div>
                 <p className="text-gray-900 text-sm md:text-base font-semibold leading-loose">
                   {item}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -357,7 +440,7 @@ const App = () => {
       />
 
       <div className="relative z-10 max-w-6xl mx-auto">
-        <h2 className="font-display text-center text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white leading-tight">
+        <h2 className="font-display text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white leading-tight">
           Over <span className="text-yellow-400">1,500+ Success Stories</span> From Real
           <br />
           People Just Like You
@@ -603,10 +686,12 @@ const App = () => {
           ].map((item, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
+              initial={{ opacity: 0, y: 30, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08, duration: 0.5 }}
               className="group bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl p-8 hover:border-red-400 hover:shadow-xl transition-all hover:-translate-y-2"
+              whileHover={{ scale: 1.05 }}
             >
               <img
                 src={item.image}
@@ -657,12 +742,24 @@ const App = () => {
       />
 
       <div className="relative z-10 max-w-6xl mx-auto text-center">
-        <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-2">
+        <motion.h2
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="font-display text-4xl md:text-5xl font-bold text-white mb-2"
+        >
           LIMITED TIME BONUS PACKAGE
-        </h2>
-        <p className="text-yellow-400 font-black text-2xl md:text-3xl mb-16">
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-yellow-400 font-black text-2xl md:text-3xl mb-16"
+        >
           (₹8000 VALUE - FREE)
-        </p>
+        </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-8 mb-16" style={{ perspective: '1200px' }}>
           <style>{`
@@ -906,9 +1003,10 @@ const App = () => {
           ].map((bonus, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.15 }}
+              initial={{ opacity: 0, y: 40, scale: 0.85 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15, duration: 0.6 }}
               className="group"
             >
               <div className="mbp-mockup-wrapper" style={{ transform: i === 0 ? 'rotateY(20deg)' : i === 2 ? 'rotateY(-20deg)' : 'rotateY(0deg)' }}>
@@ -927,11 +1025,113 @@ const App = () => {
                             <motion.div
                               animate={{ scale: [0.8, 1, 0.95] }}
                               transition={{ duration: 3, repeat: Infinity }}
-                              className="text-white"
                             >
-                              <svg className="w-16 h-16" viewBox="0 0 100 100" fill="white">
-                                <path d="M50 10C30 10 15 25 15 45c0 15 8 28 20 35 3-2 5-5 6-8-8-6-13-15-13-25 0-18 14-32 32-32s32 14 32 32c0 10-5 19-13 25 1 3 3 6 6 8 12-7 20-20 20-35 0-20-15-35-35-35z"/>
-                              </svg>
+                              <style>{`
+                                .mbp-apple-logo, .mbp-apple-top span:after, .mbp-apple-middle:after, .mbp-apple-top:before, .mbp-apple-top:after {
+                                    background: #FFF;
+                                }
+                                .mbp-apple-footer, .mbp-apple-middle span, .mbp-apple-middle, .mbp-apple-top, .mbp-apple-top span {
+                                    background: #000;
+                                }
+                                .mbp-apple-logo {
+                                    width: 60px;
+                                    height: 50px;
+                                    border-radius: 36% 36% 41% 41% / 42% 42% 75% 75%;
+                                    position: relative;
+                                }
+                                .mbp-apple-footer {
+                                    position: absolute;
+                                    width: 60%;
+                                    height: 62%;
+                                    right: -40%;
+                                    top: 8%;
+                                    border-radius: 60%;
+                                    background: #000 !important;
+                                }
+                                .mbp-apple-middle span {
+                                    display: block;
+                                    position: absolute;
+                                    border-radius: 100% 100% 0% 0%;
+                                    width: 24.5%;
+                                    height: 400%;
+                                    bottom: -239%;
+                                    left: 38%;
+                                }
+                                .mbp-apple-middle {
+                                    position: absolute;
+                                    width: 100%;
+                                    height: 4%;
+                                    bottom: -1%;
+                                }
+                                .mbp-apple-middle:before {
+                                    content: '';
+                                    position: absolute;
+                                    width: 24%;
+                                    height: 400%;
+                                    border-radius: 0% 0% 100% 100%;
+                                    left: 21%;
+                                    bottom: 38%;
+                                    background: #FFF;
+                                }
+                                .mbp-apple-middle:after {
+                                    content: '';
+                                    position: absolute;
+                                    width: 23.4%;
+                                    height: 400%;
+                                    border-radius: 0% 0% 100% 100%;
+                                    right: 21%;
+                                    bottom: 38%;
+                                }
+                                .mbp-apple-top span {
+                                    display: block;
+                                    position: absolute;
+                                    border-radius: 0 0 44% 44% / 0 0 100% 100%;
+                                    width: 63%;
+                                    height: 259%;
+                                    top: -92%;
+                                    left: 18.6%;
+                                    z-index: 3;
+                                }
+                                .mbp-apple-top span:after {
+                                    border-radius: 100% 0 100% 0;
+                                    content: "";
+                                    height: 242%;
+                                    left: 41%;
+                                    position: absolute;
+                                    top: -193%;
+                                    width: 90%;
+                                }
+                                .mbp-apple-top {
+                                    position: absolute;
+                                    width: 42%;
+                                    height: 4%;
+                                    top: 0px;
+                                    left: 29%;
+                                }
+                                .mbp-apple-top:before {
+                                    content: '';
+                                    position: absolute;
+                                    width: 62%;
+                                    height: 260%;
+                                    border-radius: 100% 100% 0% 0% / 100% 200% 0% 0%;
+                                    left: -27%;
+                                    top: 1%;
+                                }
+                                .mbp-apple-top:after {
+                                    content: '';
+                                    position: absolute;
+                                    width: 62%;
+                                    height: 260%;
+                                    border-radius: 100% 100% 0% 0% / 200% 100% 0% 0%;
+                                    right: -27%;
+                                    top: 1%;
+                                }
+                              `}</style>
+                              <div className="mbp-apple-logo">
+                                <div className="mbp-apple-top"><span></span></div>
+                                <div className="mbp-apple-middle"><span></span></div>
+                                <div className="mbp-apple-footer"></div>
+                              </div>
                             </motion.div>
                           </motion.div>
                           <motion.div
@@ -999,16 +1199,34 @@ const App = () => {
       backgroundSize: '30px 30px',
     }}>
       <div className="max-w-6xl mx-auto">
-        <h2 className="font-display text-center text-3xl md:text-5xl font-bold mb-2 text-gray-900">
+        <motion.h2
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="font-display text-center text-3xl md:text-5xl font-bold mb-2 text-gray-900"
+        >
           Before And After Getting
-        </h2>
-        <p className="text-center text-green-600 text-3xl md:text-4xl font-black mb-16">
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-center text-green-600 text-3xl md:text-4xl font-black mb-16"
+        >
           "Image Authority Blueprint"
-        </p>
+        </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6 mb-12">
           {/* BEFORE */}
-          <div className="relative">
+          <motion.div
+            initial={{ opacity: 0, x: -40, rotate: -5 }}
+            whileInView={{ opacity: 1, x: 0, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative"
+          >
             <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 z-10">
               <div className="w-16 h-16 bg-gray-900 rounded-full border-4 border-red-600 flex items-center justify-center shadow-lg">
                 <X className="w-8 h-8 text-red-600" strokeWidth={3} />
@@ -1025,17 +1243,30 @@ const App = () => {
                   "Overwhelmed by fashion choices and styling decisions",
                   "Comparing yourself to others with 'natural' style",
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-3 items-start">
-                    <div className="text-red-600 font-bold text-lg flex-shrink-0 mt-1">✕</div>
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05 }}
+                    className="flex gap-3 items-center"
+                  >
+                    <div className="text-red-600 font-bold text-2xl flex-shrink-0">✕</div>
                     <p className="text-gray-200 text-sm leading-relaxed">{item}</p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* AFTER */}
-          <div className="relative">
+          <motion.div
+            initial={{ opacity: 0, x: 40, rotate: 5 }}
+            whileInView={{ opacity: 1, x: 0, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="relative"
+          >
             <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 z-10">
               <div className="w-16 h-16 bg-green-700 rounded-full border-4 border-yellow-400 flex items-center justify-center shadow-lg">
                 <Check className="w-8 h-8 text-yellow-400" strokeWidth={3} />
@@ -1052,14 +1283,21 @@ const App = () => {
                   "Build a signature style that feels effortless and authentic",
                   "Become a style inspiration others want to emulate",
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-3 items-start">
-                    <div className="text-green-400 font-bold text-lg flex-shrink-0 mt-1">✓</div>
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05 }}
+                    className="flex gap-3 items-center"
+                  >
+                    <div className="text-green-400 font-bold text-2xl flex-shrink-0">✓</div>
                     <p className="text-green-50 text-sm leading-relaxed">{item}</p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         <div className="flex flex-col items-center gap-6">
@@ -1090,21 +1328,697 @@ const App = () => {
       </div>
     </section>
 
+    {/* ── TESTIMONIALS SECTION ── */}
+    <section className="bg-gradient-to-b from-slate-900 to-slate-950">
+      <div className="grid md:grid-cols-2 gap-0">
+        <motion.img
+          initial={{ opacity: 0, scale: 0.95, x: -40 }}
+          whileInView={{ opacity: 1, scale: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          src="/src/assets/IMG_9904.jpg"
+          alt="Success Stories 1"
+          className="w-full object-cover h-[500px]"
+        />
+        <motion.img
+          initial={{ opacity: 0, scale: 0.95, x: 40 }}
+          whileInView={{ opacity: 1, scale: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          src="/src/assets/hero-3.jpg"
+          alt="Success Stories 2"
+          className="w-full object-cover h-[500px]"
+        />
+      </div>
+    </section>
+
+    {/* ── MEET YOUR COACH ── */}
+    <section className="bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900 px-6 md:px-16 lg:px-28 py-20 md:py-28 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-0 items-start">
+          {/* Coach Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -50, rotateY: 20 }}
+            whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            style={{ perspective: '1000px' }}
+            className="flex justify-center"
+          >
+            <div className="relative w-72 h-[420px] rounded-3xl overflow-hidden shadow-2xl">
+              <img
+                src="/src/assets/evolvere7-portrait.jpg"
+                alt="Coach"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </motion.div>
+
+          {/* Coach Info */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="text-white flex flex-col justify-center h-full -ml-12"
+          >
+            <p className="text-lg tracking-widest uppercase text-white mb-2 font-light">Meet Your Coach</p>
+            <h2 className="font-display text-5xl md:text-6xl mb-8 text-yellow-400 font-bold">Nilima Sethia</h2>
+
+            <div className="space-y-4 mb-10 text-white/95 text-base">
+              <div className="flex items-start gap-3">
+                <Check className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
+                <span>India's Leading Image Authority Coach</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
+                <span>TEDx Speaker</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
+                <span>Founder of Image Authority Blueprint</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
+                <span>7+ Years | 120+ Transformations</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
+                <span>2 Million+ Lives Impacted</span>
+              </div>
+            </div>
+
+            <motion.a
+              href="https://wa.me/919876543210?text=I%20want%20to%20register%20for%20the%20Image%20Authority%20Blueprint%20Workshop"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-3 px-6 rounded-2xl shadow-2xl transition-all relative overflow-hidden group cursor-pointer mb-4 w-fit"
+            >
+              <motion.div
+                animate={{ x: ["-100%", "100%"] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
+              />
+              <div className="relative z-10 text-center">
+                <p className="font-bold text-base mb-1">Yes, I'm Ready To Become a 6-Figure Coach</p>
+                <p className="text-xs font-semibold">
+                  <span className="line-through text-red-100 mr-2">₹999</span>
+                  <span className="font-bold text-yellow-300">₹199</span>
+                </p>
+              </div>
+            </motion.a>
+
+            <div className="flex items-center gap-3 ml-12">
+              <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+
+    {/* ── SUCCESS STORIES ── */}
+    <section className="bg-white text-gray-900 px-6 md:px-16 lg:px-28 py-16 md:py-20 relative overflow-hidden"
+      style={{
+        backgroundImage: `
+          radial-gradient(circle, rgba(0,0,0,0.05) 1.5px, transparent 1.5px)
+        `,
+        backgroundSize: '30px 30px',
+      }}
+    >
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <span className="text-xs tracking-[0.3em] uppercase font-sans text-gray-600 mb-3 block">Success Stories</span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-gray-900 mb-3 font-bold leading-tight">
+            Meet Our Champions
+          </h2>
+          <p className="text-gray-700 font-sans font-light text-sm max-w-2xl mx-auto">
+            Real transformations from women just like you who took the leap.
+          </p>
+        </motion.div>
+
+        {/* Grid */}
+        <div className="grid md:grid-cols-4 gap-4">
+          {[
+            { name: "BK Shivani Didi", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=90" },
+            { name: "Sonu Sood", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=90" },
+            { name: "Bhagyashree", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&q=90" },
+            { name: "Shri Gaur Gopal Das", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&q=90" },
+            { name: "Aman Gupta (Shark)", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=90" },
+            { name: "Vineeta Singh (Shark)", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=90" },
+            { name: "Priya Sharma", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&q=90" },
+            { name: "Rajesh Kumar", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&q=90" },
+            { name: "Anjali Patel", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=90" },
+            { name: "Deepak Singh", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=90" },
+            { name: "Meera Verma", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&q=90" },
+            { name: "Arjun Nair", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&q=90" },
+          ].map((story, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08, duration: 0.5 }}
+              className="group relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-2xl transition-all duration-500 border-2 border-gray-200 hover:border-yellow-400"
+              whileHover={{ y: -5, scale: 1.02 }}
+            >
+              <div className="relative h-56 overflow-hidden bg-gray-900">
+                <img
+                  src={story.image}
+                  alt={story.name}
+                  className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent group-hover:from-yellow-900/80 group-hover:via-black/30 transition-all duration-500"></div>
+
+                {/* Star Badge */}
+                <motion.div
+                  className="absolute top-3 right-3 bg-yellow-400 text-gray-900 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <Star size={16} className="fill-current" />
+                </motion.div>
+              </div>
+
+              <div className="absolute bottom-0 left-0 right-0 p-5 transform group-hover:translate-y-0 transition-transform duration-500">
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <CheckCircle size={14} className="text-yellow-400" />
+                </div>
+                <h3 className="text-white font-bold text-sm tracking-wider uppercase text-center group-hover:text-yellow-300 transition-colors duration-300 drop-shadow-lg">
+                  {story.name}
+                </h3>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* CTA Button */}
+        <div className="flex flex-col items-center gap-3 mt-16">
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-3 px-6 rounded-2xl shadow-2xl transition-all relative overflow-hidden group cursor-pointer w-fit"
+          >
+            <motion.div
+              animate={{ x: ["-100%", "100%"] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
+            />
+            <span className="relative z-10 font-bold text-base">Yes, I'm Ready To Join</span>
+          </motion.button>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
+            <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
+          </motion.div>
+        </div>
+      </div>
+    </section>
+
+    {/* ── IMAGINE YOUR LIFE ── */}
+    <section className="bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900 px-6 md:px-16 lg:px-28 py-20 md:py-28 relative overflow-hidden">
+      <div className="max-w-4xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="font-display text-3xl md:text-4xl lg:text-5xl text-center mb-16 font-bold leading-tight"
+        >
+          <span className="text-white">Imagine Your Life</span>
+          <br />
+          <span className="text-yellow-400">90 Days From Now</span>
+        </motion.h2>
+
+        <div className="space-y-4">
+          {[
+            "Waking Up With Confidence, Turning Heads With Your Presence",
+            "Booking More Clients Without Begging or Discounting",
+            "Building Genuine Connections That Lead To Long-Term Relationships",
+            "Creating A Personal Brand That Commands Respect & Authority",
+            "Earning What You Deserve Without Feeling Like An Imposter",
+            "Inspiring Others With Your Transformation & Authenticity",
+          ].map((benefit, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: i % 2 === 0 ? -40 : 40, rotate: -5 }}
+              whileInView={{ opacity: 1, x: 0, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08, duration: 0.5 }}
+              className="bg-white text-gray-900 p-5 rounded-2xl font-bold text-center md:text-lg shadow-lg hover:shadow-xl hover:bg-yellow-50 transition-all duration-300 border-2 border-transparent hover:border-yellow-400"
+              whileHover={{ scale: 1.03, rotate: 1 }}
+            >
+              {benefit}
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="flex flex-col items-center gap-3 mt-16">
+          <motion.a
+            href="https://wa.me/919876543210?text=I%20want%20to%20register%20for%20the%20Image%20Authority%20Blueprint%20Workshop"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-3 px-6 rounded-2xl shadow-2xl transition-all relative overflow-hidden group cursor-pointer w-fit"
+          >
+            <motion.div
+              animate={{ x: ["-100%", "100%"] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
+            />
+            <div className="relative z-10 text-center">
+              <p className="font-bold text-base mb-1">Start Your 90-Day Transformation Today</p>
+              <p className="text-xs font-semibold">
+                <span className="line-through text-red-100 mr-2">₹999</span>
+                <span className="font-bold text-yellow-300">₹199</span>
+              </p>
+            </div>
+          </motion.a>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
+            <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
+          </motion.div>
+        </div>
+      </div>
+    </section>
+
+    {/* ── CROSSROAD ── */}
+    <section className="bg-white text-gray-900 px-6 md:px-16 lg:px-28 py-20 md:py-28 relative overflow-hidden"
+      style={{
+        backgroundImage: `
+          radial-gradient(circle, rgba(0,0,0,0.05) 1.5px, transparent 1.5px)
+        `,
+        backgroundSize: '30px 30px',
+      }}
+    >
+      <div className="max-w-5xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="font-display text-3xl md:text-4xl lg:text-5xl text-center mb-16 font-bold leading-tight text-gray-900"
+        >
+          You're At A <span className="text-red-600">Crossroad</span>...
+        </motion.h2>
+
+        {/* Two Paths */}
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
+          {/* Path 1 - Red */}
+          <motion.div
+            initial={{ opacity: 0, x: -50, scale: 0.95 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-gradient-to-br from-red-600 to-red-700 text-white p-8 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300"
+            whileHover={{ y: -10, scale: 1.02 }}
+          >
+            <h3 className="font-bold text-2xl md:text-3xl mb-4 text-center">PATH 1</h3>
+            <p className="text-center text-base leading-relaxed">
+              Stay stuck with low-priced clients, struggling for confidence, and watching others succeed while you remain invisible and undervalued.
+            </p>
+          </motion.div>
+
+          {/* Path 2 - Green */}
+          <motion.div
+            initial={{ opacity: 0, x: 50, scale: 0.95 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="bg-gradient-to-br from-green-600 to-green-700 text-white p-8 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300"
+            whileHover={{ y: -10, scale: 1.02 }}
+          >
+            <h3 className="font-bold text-2xl md:text-3xl mb-4 text-center">PATH 2</h3>
+            <p className="text-center text-base leading-relaxed">
+              Invest just ₹199 and 90 days to build unshakeable confidence, command premium prices, and become the authority clients can't ignore.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* CTA Button */}
+        <div className="flex flex-col items-center gap-3 mt-12">
+          <motion.a
+            href="https://wa.me/919876543210?text=I%20want%20to%20register%20for%20the%20Image%20Authority%20Blueprint%20Workshop"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-3 px-6 rounded-2xl shadow-2xl transition-all relative overflow-hidden group cursor-pointer w-fit"
+          >
+            <motion.div
+              animate={{ x: ["-100%", "100%"] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
+            />
+            <div className="relative z-10 text-center">
+              <p className="font-bold text-base mb-1">Yes, I Choose Path 2 - Let's Transform</p>
+              <p className="text-xs font-semibold">
+                <span className="line-through text-red-100 mr-2">₹999</span>
+                <span className="font-bold text-yellow-300">₹199</span>
+              </p>
+            </div>
+          </motion.a>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
+            <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
+          </motion.div>
+        </div>
+      </div>
+    </section>
+
+    {/* ── CONTINUOUS MARQUEE ── */}
+    <section className="bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900 py-20 md:py-28 relative overflow-hidden">
+      <div className="px-6 md:px-16 lg:px-28 mb-12">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="font-display text-3xl md:text-4xl lg:text-5xl text-center font-bold leading-tight"
+        >
+          <span className="text-yellow-400">Beyond The Income:</span>
+          <br />
+          <span className="text-white">The Community & Support You'll Gain</span>
+        </motion.h2>
+      </div>
+
+      {/* Marquee Container - Full Width */}
+      <div className="relative overflow-hidden w-screen -ml-[50vw] left-1/2 mb-12">
+        <motion.div
+          animate={{ x: [0, -3000] }}
+          transition={{
+            duration: 40,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="flex gap-6"
+        >
+          {/* First Set */}
+          {[
+            "/src/assets/hero-1.jpg",
+            "/src/assets/hero-2.jpg",
+            "/src/assets/hero-3.jpg",
+            "/src/assets/hero-4.jpg",
+            "/src/assets/IMG_9904.jpg",
+            "/src/assets/evolvere7-portrait.jpg",
+            "/src/assets/stylist-portrait.jpg",
+          ].map((image, i) => (
+            <motion.div
+              key={`group1-${i}`}
+              className="flex-shrink-0 w-96 h-72 rounded-2xl overflow-hidden shadow-2xl"
+            >
+              <img
+                src={image}
+                alt={`Community moment ${i + 1}`}
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+              />
+            </motion.div>
+          ))}
+
+          {/* Duplicate Set for seamless loop */}
+          {[
+            "/src/assets/hero-1.jpg",
+            "/src/assets/hero-2.jpg",
+            "/src/assets/hero-3.jpg",
+            "/src/assets/hero-4.jpg",
+            "/src/assets/IMG_9904.jpg",
+            "/src/assets/evolvere7-portrait.jpg",
+            "/src/assets/stylist-portrait.jpg",
+          ].map((image, i) => (
+            <motion.div
+              key={`group2-${i}`}
+              className="flex-shrink-0 w-96 h-72 rounded-2xl overflow-hidden shadow-2xl"
+            >
+              <img
+                src={image}
+                alt={`Community moment duplicate ${i + 1}`}
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* CTA Button */}
+      <div className="flex flex-col items-center gap-3">
+        <motion.a
+          href="https://wa.me/919876543210?text=I%20want%20to%20register%20for%20the%20Image%20Authority%20Blueprint%20Workshop"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-3 px-6 rounded-2xl shadow-2xl transition-all relative overflow-hidden group cursor-pointer w-fit"
+        >
+          <motion.div
+            animate={{ x: ["-100%", "100%"] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
+          />
+          <div className="relative z-10 text-center">
+            <p className="font-bold text-base mb-1">Yes, I'm Ready To Join This Community</p>
+            <p className="text-xs font-semibold">
+              <span className="line-through text-red-100 mr-2">₹999</span>
+              <span className="font-bold text-yellow-300">₹199</span>
+            </p>
+          </div>
+        </motion.a>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+        >
+          <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
+        </motion.div>
+      </div>
+    </section>
+
+    {/* ── FAQ ── */}
+    <section className="bg-white text-gray-900 px-6 md:px-16 lg:px-28 py-20 md:py-28 relative overflow-hidden"
+      style={{
+        backgroundImage: `
+          radial-gradient(circle, rgba(0,0,0,0.05) 1.5px, transparent 1.5px)
+        `,
+        backgroundSize: '30px 30px',
+      }}
+    >
+      <div className="max-w-5xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="font-display text-3xl md:text-4xl lg:text-5xl text-center mb-12 font-bold text-gray-900"
+        >
+          Frequently Asked Questions
+        </motion.h2>
+
+        {/* FAQ Accordion */}
+        <div className="space-y-4 mb-12">
+          {[
+            {
+              question: "I don't have a styling background. Can I really become an image authority?",
+              answer: "Absolutely! Our 90-day program is designed for beginners. We teach you everything from scratch, including the psychology of personal branding, styling fundamentals, and how to position yourself as an authority in your niche. No prior experience needed."
+            },
+            {
+              question: "How can I find time for this with my busy schedule?",
+              answer: "The workshop is designed to fit into busy schedules. You'll only need to dedicate 3 hours per week for 90 days. The modules are flexible, and you can complete them at your own pace. Many of our students are working professionals who've successfully completed the program."
+            },
+            {
+              question: "My family doesn't support this career path. How can I convince them?",
+              answer: "Once you start seeing results - increased confidence, more bookings, and higher income - your family will see the transformation. We also provide you with testimonials and success stories from our community that you can share with your loved ones."
+            },
+            {
+              question: "Is the styling market saturated?",
+              answer: "While there are many stylists, very few have built a strong personal brand and authority. Our focus is on helping you differentiate yourself and command premium prices, which is where the real money is made."
+            },
+            {
+              question: "I've tried other programs before without success. Why will this be different?",
+              answer: "Our program combines proven styling techniques with psychological coaching and personal branding strategies. We focus on building confidence and authority, not just teaching styling skills. Plus, you'll have access to our supportive community for accountability."
+            },
+            {
+              question: "What if I invest in this workshop and it doesn't work for me?",
+              answer: "We're confident in our program's results. However, your success depends on implementing what you learn. We provide step-by-step guidance, community support, and resources to help you succeed. Your commitment matters as much as our teaching."
+            },
+            {
+              question: "Is this a live workshop or pre-recorded?",
+              answer: "The workshop includes both pre-recorded modules for flexibility and live Q&A sessions with Nilima for personalized guidance. This hybrid approach gives you the best of both worlds - convenience and direct interaction."
+            },
+            {
+              question: "How is this workshop different from free YouTube videos on styling?",
+              answer: "While YouTube has free content, it lacks structure, personalization, and accountability. Our workshop is a comprehensive 90-day system with daily coaching, community support, proven frameworks, and direct access to an expert. It's like comparing self-study to having a personal coach."
+            },
+            {
+              question: "How interactive is the workshop? Can I ask specific questions?",
+              answer: "Very interactive! You'll have access to live Q&A sessions, our private community group, and direct messaging options. You can ask any questions and get personalized guidance from Nilima and our team throughout the 90 days."
+            }
+          ].map((faq, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.05 }}
+            >
+              <FAQItem
+                question={faq.question}
+                answer={faq.answer}
+                isOpen={openFAQ === i}
+                onToggle={() => setOpenFAQ(openFAQ === i ? -1 : i)}
+              />
+            </motion.div>
+          ))}
+        </div>
+
+        {/* CTA Button */}
+        <div className="flex flex-col items-center gap-3">
+          <motion.a
+            href="https://wa.me/919876543210?text=I%20want%20to%20register%20for%20the%20Image%20Authority%20Blueprint%20Workshop"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-3 px-6 rounded-2xl shadow-2xl transition-all relative overflow-hidden group cursor-pointer w-fit"
+          >
+            <motion.div
+              animate={{ x: ["-100%", "100%"] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
+            />
+            <div className="relative z-10 text-center">
+              <p className="font-bold text-base mb-1">Yes, I'm Ready To Become a 6-Figure Coach</p>
+              <p className="text-xs font-semibold">
+                <span className="line-through text-red-100 mr-2">₹999</span>
+                <span className="font-bold text-yellow-300">₹199</span>
+              </p>
+            </div>
+          </motion.a>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
+            <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
+          </motion.div>
+        </div>
+      </div>
+    </section>
+
     {/* ── FOOTER ── */}
-    <footer className="px-6 md:px-16 lg:px-28 py-12 border-t border-white/5">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-        <div>
-          <div className="font-display text-xl mb-2">Evolvere7.</div>
-          <p className="text-primary-foreground/40 text-xs">Image & Personal Brand Coaching</p>
-        </div>
-        <div className="flex gap-8">
-          <a href="#" className="text-primary-foreground/40 hover:text-accent text-xs tracking-[0.1em] uppercase transition-colors">Privacy</a>
-          <a href="#" className="text-primary-foreground/40 hover:text-accent text-xs tracking-[0.1em] uppercase transition-colors">Terms</a>
-          <a href="#" className="text-primary-foreground/40 hover:text-accent text-xs tracking-[0.1em] uppercase transition-colors">Contact</a>
-        </div>
-        <p className="text-primary-foreground/30 text-xs">© 2026 Evolvere7. All rights reserved.</p>
+    <footer className="bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900 px-6 md:px-16 lg:px-28 pt-8 md:pt-10 pb-8 md:pb-12 border-t border-white/5 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto flex flex-col items-center gap-4">
+        {/* Copyright */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-white text-sm font-medium tracking-wide"
+        >
+          © 2026 Evolvere7. All rights reserved.
+        </motion.p>
+
+        {/* Links */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 flex-wrap"
+        >
+          {[
+            { label: "Contact Us", url: "https://www.evolvere7.com/contact" },
+            { label: "Terms & Conditions", url: "https://www.evolvere7.com/terms" },
+            { label: "Refunds & Cancellations", url: "https://www.evolvere7.com/refunds" },
+            { label: "Privacy Policy", url: "https://www.evolvere7.com/privacy" },
+            { label: "About Us", url: "https://www.evolvere7.com/about" },
+          ].map((link, i) => (
+            <motion.a
+              key={i}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.05 }}
+              className="text-white text-sm font-medium hover:text-yellow-400 transition-colors duration-300 tracking-wide"
+            >
+              {link.label}
+            </motion.a>
+          ))}
+        </motion.div>
       </div>
     </footer>
+
+    {/* ── FIXED BOTTOM CTA ── */}
+    <motion.div
+      initial={{ y: 100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ delay: 1 }}
+      className="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-slate-900 to-blue-900 px-6 md:px-16 lg:px-28 py-2 md:py-2 shadow-2xl border-t border-white/10 z-50"
+    >
+      <div className="max-w-7xl mx-auto flex items-center justify-center gap-4 md:gap-6 h-16 md:h-20 relative">
+        {/* Image */}
+        <div className="flex-shrink-0 hidden md:flex items-end justify-center -mb-2">
+          <img
+            src="/src/assets/IMG_9903-Photoroom.png"
+            alt="Coach"
+            className="h-28 md:h-32 object-cover rounded-xl shadow-2xl"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="flex-shrink-0">
+          <h3 className="font-display text-base md:text-lg text-white font-bold leading-tight whitespace-nowrap">
+            Become a <span className="text-yellow-400">6-Figure Coach</span>
+            <br />
+            In 90 Days
+          </h3>
+        </div>
+
+        {/* Button */}
+        <motion.a
+          href="https://wa.me/919876543210?text=I%20want%20to%20register%20for%20the%20Image%20Authority%20Blueprint%20Workshop"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="flex-shrink-0 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-2 px-6 rounded-full font-bold text-sm md:text-base shadow-lg transition-all relative overflow-hidden group cursor-pointer w-fit whitespace-nowrap"
+        >
+          <motion.div
+            animate={{ x: ["-100%", "100%"] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
+          />
+          <span className="relative z-10">Join Now</span>
+        </motion.a>
+      </div>
+    </motion.div>
   </div>
   );
 };
