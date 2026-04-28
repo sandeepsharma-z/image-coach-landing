@@ -1951,11 +1951,11 @@ const App = () => {
           className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 flex-wrap"
         >
           {[
-            { label: "Contact Us", url: "https://www.evolvere7.com/contact" },
-            { label: "Terms & Conditions", url: "https://www.evolvere7.com/terms" },
-            { label: "Refunds & Cancellations", url: "https://www.evolvere7.com/refunds" },
-            { label: "Privacy Policy", url: "https://www.evolvere7.com/privacy" },
-            { label: "About Us", url: "https://www.evolvere7.com/about" },
+            { label: "Main Website", url: "https://golden-hour-style.vercel.app/" },
+            { label: "Contact", url: "https://golden-hour-style.vercel.app/" },
+            { label: "Terms & Privacy", url: "https://golden-hour-style.vercel.app/" },
+            { label: "About", url: "https://golden-hour-style.vercel.app/" },
+            { label: "WhatsApp", url: "https://wa.me/919876543210" },
           ].map((link, i) => (
             <motion.a
               key={i}
