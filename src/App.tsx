@@ -1517,20 +1517,36 @@ const App = () => {
           ))}
         </div>
 
-        {/* CTA Button */}
-        <div className="flex flex-col items-center gap-3 mt-16">
+        {/* CTA Section */}
+        <div className="flex flex-col items-center gap-6 mt-20">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center max-w-2xl"
+          >
+            <h3 className="font-display text-2xl md:text-3xl text-gray-900 mb-3 font-bold">
+              Ready To Transform Your Life?
+            </h3>
+            <p className="text-gray-700 font-sans text-base leading-relaxed">
+              Join our community of successful coaches and start your journey to becoming a 6-figure authority in 90 days.
+            </p>
+          </motion.div>
+
           <motion.button
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-3 px-6 rounded-2xl shadow-2xl transition-all relative overflow-hidden group cursor-pointer w-fit"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-4 px-10 rounded-full shadow-2xl transition-all relative overflow-hidden group cursor-pointer w-fit font-bold text-lg"
           >
             <motion.div
               animate={{ x: ["-100%", "100%"] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
             />
-            <span className="relative z-10 font-bold text-base">Yes, I'm Ready To Join</span>
+            <span className="relative z-10">Yes, I'm Ready To Join</span>
           </motion.button>
 
           <motion.div
