@@ -1518,21 +1518,7 @@ const App = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="flex flex-col items-center gap-8 mt-20">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center max-w-3xl"
-          >
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-gray-900 mb-6 font-bold leading-tight">
-              Ready To Transform Your Life?
-            </h2>
-            <p className="text-gray-700 font-sans text-base leading-relaxed">
-              Join our community of successful coaches and start your journey to becoming a 6-figure authority in 90 days.
-            </p>
-          </motion.div>
-
+        <div className="flex flex-col items-center gap-4 mt-16">
           <motion.button
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
