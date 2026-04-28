@@ -1525,7 +1525,8 @@ const App = () => {
             viewport={{ once: true }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-4 px-10 rounded-full shadow-2xl transition-all relative overflow-hidden group cursor-pointer w-fit"
+            className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-4 px-10 shadow-2xl transition-all relative overflow-hidden group cursor-pointer w-fit"
+            style={{ borderRadius: "1rem" }}
           >
             <motion.div
               animate={{ x: ["-100%", "100%"] }}
