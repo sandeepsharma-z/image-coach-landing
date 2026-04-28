@@ -1539,14 +1539,20 @@ const App = () => {
             viewport={{ once: true }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-4 px-10 rounded-full shadow-2xl transition-all relative overflow-hidden group cursor-pointer w-fit font-bold text-lg"
+            className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-4 px-10 rounded-full shadow-2xl transition-all relative overflow-hidden group cursor-pointer w-fit"
           >
             <motion.div
               animate={{ x: ["-100%", "100%"] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
             />
-            <span className="relative z-10">Yes, I'm Ready To Join</span>
+            <div className="relative z-10 text-center">
+              <p className="font-bold text-base mb-1">Yes, I'm Ready To Join The Workshop</p>
+              <p className="text-xs font-semibold">
+                <span className="line-through text-red-100 mr-2">₹1999</span>
+                <span className="font-bold text-yellow-300">₹499</span>
+              </p>
+            </div>
           </motion.button>
 
           <motion.div
