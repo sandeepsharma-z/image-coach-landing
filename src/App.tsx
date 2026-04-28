@@ -130,7 +130,7 @@ const App = () => {
           <div className="relative" style={{ overflow: "visible", paddingTop: "45px" }}>
             <div className="w-64 h-64 md:w-72 md:h-72 rounded-full bg-gray-900 shadow-2xl overflow-visible relative mx-auto" style={{ marginTop: "-45px", border: "8px solid #9ca3af" }}>
               <img
-                src="/src/assets/IMG_9903-Photoroom.png"
+                src="/assets/IMG_9903-Photoroom.png"
                 alt="Nilima Sethia"
                 className="absolute w-full"
                 style={{ height: "140%", top: "-30px", left: "0", objectFit: "cover", objectPosition: "center 45%" }}
@@ -232,7 +232,7 @@ const App = () => {
 
             {/* Payment Logos - Images */}
             <div className="flex items-center justify-center gap-3 pt-2">
-              <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
+              <img src="/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
             </div>
         </motion.div>
       </div>
@@ -419,7 +419,7 @@ const App = () => {
           </div>
 
           <div className="flex items-center justify-center gap-3">
-            <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
+            <img src="/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
           </div>
         </div>
       </div>
@@ -632,7 +632,7 @@ const App = () => {
           </div>
 
           <div className="flex items-center justify-center gap-4">
-            <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-8 object-contain" />
+            <img src="/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-8 object-contain" />
           </div>
         </div>
       </div>
@@ -721,7 +721,7 @@ const App = () => {
           </div>
 
           <div className="flex items-center justify-center gap-3">
-            <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-8 object-contain" />
+            <img src="/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-8 object-contain" />
           </div>
         </div>
       </div>
@@ -1187,7 +1187,7 @@ const App = () => {
           </a>
 
           <div className="flex items-center justify-center gap-3">
-            <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-8 object-contain" />
+            <img src="/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-8 object-contain" />
           </div>
         </div>
       </div>
@@ -1322,7 +1322,7 @@ const App = () => {
           </a>
 
           <div className="flex items-center justify-center gap-3">
-            <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-8 object-contain" />
+            <img src="/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-8 object-contain" />
           </div>
         </div>
       </div>
@@ -1336,7 +1336,7 @@ const App = () => {
           whileInView={{ opacity: 1, scale: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          src="/src/assets/IMG_9904.jpg"
+          src="/assets/IMG_9904.jpg"
           alt="Success Stories 1"
           className="w-full object-cover h-[500px]"
         />
@@ -1345,7 +1345,7 @@ const App = () => {
           whileInView={{ opacity: 1, scale: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          src="/src/assets/hero-3.jpg"
+          src="/assets/hero-3.jpg"
           alt="Success Stories 2"
           className="w-full object-cover h-[500px]"
         />
@@ -1367,7 +1367,7 @@ const App = () => {
           >
             <div className="relative w-72 h-[420px] rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="/src/assets/evolvere7-portrait.jpg"
+                src="/assets/evolvere7-portrait.jpg"
                 alt="Coach"
                 className="w-full h-full object-cover"
               />
@@ -1429,7 +1429,7 @@ const App = () => {
             </motion.a>
 
             <div className="flex items-center gap-3 ml-12">
-              <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
+              <img src="/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
             </div>
           </motion.div>
         </div>
@@ -1539,7 +1539,7 @@ const App = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
+            <img src="/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
           </motion.div>
         </div>
       </div>
@@ -1613,7 +1613,7 @@ const App = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
+            <img src="/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
           </motion.div>
         </div>
       </div>
@@ -1702,7 +1702,7 @@ const App = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
+            <img src="/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
           </motion.div>
         </div>
       </div>
@@ -1736,13 +1736,13 @@ const App = () => {
         >
           {/* First Set */}
           {[
-            "/src/assets/hero-1.jpg",
-            "/src/assets/hero-2.jpg",
-            "/src/assets/hero-3.jpg",
-            "/src/assets/hero-4.jpg",
-            "/src/assets/IMG_9904.jpg",
-            "/src/assets/evolvere7-portrait.jpg",
-            "/src/assets/stylist-portrait.jpg",
+            "/assets/hero-1.jpg",
+            "/assets/hero-2.jpg",
+            "/assets/hero-3.jpg",
+            "/assets/hero-4.jpg",
+            "/assets/IMG_9904.jpg",
+            "/assets/evolvere7-portrait.jpg",
+            "/assets/stylist-portrait.jpg",
           ].map((image, i) => (
             <motion.div
               key={`group1-${i}`}
@@ -1758,13 +1758,13 @@ const App = () => {
 
           {/* Duplicate Set for seamless loop */}
           {[
-            "/src/assets/hero-1.jpg",
-            "/src/assets/hero-2.jpg",
-            "/src/assets/hero-3.jpg",
-            "/src/assets/hero-4.jpg",
-            "/src/assets/IMG_9904.jpg",
-            "/src/assets/evolvere7-portrait.jpg",
-            "/src/assets/stylist-portrait.jpg",
+            "/assets/hero-1.jpg",
+            "/assets/hero-2.jpg",
+            "/assets/hero-3.jpg",
+            "/assets/hero-4.jpg",
+            "/assets/IMG_9904.jpg",
+            "/assets/evolvere7-portrait.jpg",
+            "/assets/stylist-portrait.jpg",
           ].map((image, i) => (
             <motion.div
               key={`group2-${i}`}
@@ -1811,7 +1811,7 @@ const App = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
-          <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
+          <img src="/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
         </motion.div>
       </div>
     </section>
@@ -1923,7 +1923,7 @@ const App = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            <img src="/src/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
+            <img src="/assets/Group10000070131_kwmzm_921.png" alt="Payment methods" className="h-6 object-contain" />
           </motion.div>
         </div>
       </div>
@@ -1986,7 +1986,7 @@ const App = () => {
         {/* Image */}
         <div className="flex-shrink-0 hidden md:flex items-end justify-center -mb-2">
           <img
-            src="/src/assets/IMG_9903-Photoroom.png"
+            src="/assets/IMG_9903-Photoroom.png"
             alt="Coach"
             className="h-28 md:h-32 object-cover rounded-xl shadow-2xl"
           />
