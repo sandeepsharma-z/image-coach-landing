@@ -55,16 +55,17 @@
 
 @layer base {
   html {
-    scrollbar-gutter: stable;
-    overflow-y: scroll;
-  }
-
-  * {
-    @apply border-border;
+    overflow-y: scroll !important;
+    scrollbar-gutter: stable !important;
+    height: 100%;
   }
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  * {
+    @apply border-border;
   }
 
   h1, h2, h3, h4, h5, h6 {
