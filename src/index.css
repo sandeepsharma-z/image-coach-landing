@@ -82,24 +82,24 @@
 /* Scrollbar styling */
 html {
   scrollbar-width: thin;
-  scrollbar-color: #999 transparent;
+  scrollbar-color: #555 #f0f0f0;
 }
 
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 14px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: #f0f0f0;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #999;
-  border-radius: 6px;
+  background: #555;
+  border-radius: 7px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #666;
+  background: #333;
 }
 
 @layer components {
