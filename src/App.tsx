@@ -253,7 +253,7 @@ const App = () => {
           transition={{ duration: 0.6 }}
           className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-16 text-gray-900 px-6"
         >
-          Featured in
+          FEATURED IN
         </motion.h2>
         <div className="w-full overflow-hidden">
           <style>{`
@@ -268,8 +268,14 @@ const App = () => {
             .marquee {
               display: flex;
               animation: marquee 70s linear infinite;
-              gap: 60px;
-              padding: 0 30px;
+              gap: 30px;
+              padding: 0 20px;
+            }
+            @media (min-width: 768px) {
+              .marquee {
+                gap: 60px;
+                padding: 0 30px;
+              }
             }
             .marquee:hover {
               animation-play-state: paused;
