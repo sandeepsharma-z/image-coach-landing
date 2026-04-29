@@ -1324,9 +1324,9 @@ const App = () => {
     </section>
 
     {/* ── MEET YOUR COACH ── */}
-    <section className="bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900 px-6 md:px-16 lg:px-28 py-20 md:py-28 relative overflow-hidden">
+    <section className="bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900 px-4 sm:px-6 md:px-16 lg:px-28 py-12 md:py-20 lg:py-28 relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-0 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6 items-start">
           {/* Coach Image */}
           <motion.div
             initial={{ opacity: 0, x: -50, rotateY: 20 }}
@@ -1334,9 +1334,9 @@ const App = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
             style={{ perspective: '1000px' }}
-            className="flex justify-center"
+            className="flex justify-center order-2 md:order-1"
           >
-            <div className="relative w-72 h-[420px] rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative w-48 sm:w-56 md:w-64 lg:w-72 h-auto rounded-3xl overflow-hidden shadow-2xl aspect-[3/4]">
               <img
                 src="/assets/evolvere7-portrait.jpg"
                 alt="Coach"
@@ -1351,12 +1351,12 @@ const App = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-white flex flex-col justify-center h-full -ml-12"
+            className="text-white flex flex-col justify-center h-full md:-ml-6 order-1 md:order-2"
           >
-            <p className="text-lg tracking-widest uppercase text-white mb-2 font-light">Meet Your Coach</p>
-            <h2 className="font-display text-5xl md:text-6xl mb-8 text-yellow-400 font-bold">Nilima Sethia</h2>
+            <p className="text-sm md:text-base tracking-widest uppercase text-white mb-3 md:mb-2 font-light">Meet Your Coach</p>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6 md:mb-8 text-yellow-400 font-bold">Nilima Sethia</h2>
 
-            <div className="space-y-4 mb-10 text-white/95 text-base">
+            <div className="space-y-3 md:space-y-4 mb-8 md:mb-10 text-white/95 text-sm md:text-base">
               <div className="flex items-start gap-3">
                 <Check className="w-6 h-6 text-white flex-shrink-0 mt-0.5" />
                 <span>India's Leading Image Authority Coach</span>
