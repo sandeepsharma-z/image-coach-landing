@@ -1210,6 +1210,7 @@ const App = () => {
               </div>
             </div>
             <div className="bg-gray-900 text-white rounded-2xl p-10 pt-16">
+              <img src="/assets/bf33.jpg" alt="Before" className="w-full h-64 object-cover rounded-lg mb-6" />
               <h3 className="text-center text-2xl font-bold text-red-500 mb-8">BEFORE</h3>
               <div className="space-y-4">
                 {[
@@ -1250,6 +1251,7 @@ const App = () => {
               </div>
             </div>
             <div className="bg-gradient-to-br from-green-900 to-green-800 text-white rounded-2xl p-10 pt-16">
+              <img src="/assets/ba2.jpg" alt="After" className="w-full h-64 object-cover rounded-lg mb-6" />
               <h3 className="text-center text-2xl font-bold text-green-400 mb-8">AFTER</h3>
               <div className="space-y-4">
                 {[
@@ -1442,18 +1444,14 @@ const App = () => {
         {/* Grid */}
         <div className="grid md:grid-cols-4 gap-4">
           {[
-            { name: "BK Shivani Didi", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=90" },
-            { name: "Sonu Sood", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=90" },
-            { name: "Bhagyashree", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&q=90" },
-            { name: "Shri Gaur Gopal Das", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&q=90" },
-            { name: "Aman Gupta (Shark)", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=90" },
-            { name: "Vineeta Singh (Shark)", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=90" },
-            { name: "Priya Sharma", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&q=90" },
-            { name: "Rajesh Kumar", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&q=90" },
-            { name: "Anjali Patel", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=90" },
-            { name: "Deepak Singh", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=90" },
-            { name: "Meera Verma", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&q=90" },
-            { name: "Arjun Nair", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&q=90" },
+            { name: "Client 1", image: "/assets/9-768x768.jpg" },
+            { name: "Client 2", image: "/assets/8-768x768.jpg" },
+            { name: "Client 3", image: "/assets/1-768x768.jpg" },
+            { name: "Client 4", image: "/assets/1-768x768-1.jpg" },
+            { name: "Client 5", image: "/assets/10-768x768.jpg" },
+            { name: "Client 6", image: "/assets/11-768x768.jpg" },
+            { name: "Client 7", image: "/assets/Client-Transformation-4.jpg" },
+            { name: "Client 8", image: "/assets/Client-Transformation-5.jpg" },
           ].map((story, i) => (
             <motion.div
               key={i}
