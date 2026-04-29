@@ -152,7 +152,7 @@ const App = () => {
           className="flex flex-col gap-4"
         >
           {/* Workshop Details Grid */}
-            <div className="grid grid-cols-2 gap-4 mt-8">
+            <div className="grid grid-cols-2 gap-4 mt-12 sm:mt-10 md:mt-8">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
