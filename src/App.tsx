@@ -449,15 +449,15 @@ const App = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 mt-12">
           {[
             {
-              id: "ZiGdZYBZF9o",
+              src: "/assets/video1.mp4",
               title: "Dream Income achieved in just 1 year!"
             },
             {
-              id: "KFTkKIhjkfg",
+              src: "/assets/video2.mp4",
               title: "From charging Rs.500 to charging 50K+ per client"
             },
             {
-              id: "4Wkoa7eifXc",
+              src: "/assets/video3.mp4",
               title: "From struggling with one income to succeeding with multiple incomes"
             },
           ].map((card, i) => (
@@ -466,43 +466,14 @@ const App = () => {
                 <Volume2 size={16} />
                 CLICK BELOW TO WATCH (SOUND ON)
               </div>
-              <div className="relative w-full bg-black" style={{ paddingBottom: '56.25%' }}>
-                {playingVideo === card.id ? (
-                  <div className="absolute inset-0 w-full h-full">
-                    <iframe
-                      width="100%"
-                      height="100%"
-                      src={`https://www.youtube.com/embed/${card.id}?autoplay=1`}
-                      title={card.title}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                      allowFullScreen={true}
-                      style={{ border: 'none', display: 'block' }}
-                    />
-                  </div>
-                ) : (
-                  <button
-                    onClick={() => setPlayingVideo(card.id)}
-                    className="absolute inset-0 w-full h-full flex items-center justify-center group/btn cursor-pointer hover:bg-black/40 transition-all"
-                  >
-                    <img
-                      src={`https://img.youtube.com/vi/${card.id}/maxresdefault.jpg`}
-                      alt={card.title}
-                      className="absolute inset-0 w-full h-full object-cover group-hover/btn:brightness-75 transition-all"
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover/btn:bg-black/30 transition-all" />
-                    <div className="relative z-10 flex items-center justify-center">
-                      <motion.div
-                        whileHover={{ scale: 1.2 }}
-                        className="w-16 h-16 bg-black/30 rounded-full flex items-center justify-center"
-                      >
-                        <svg className="w-10 h-10 text-white fill-current ml-1" viewBox="0 0 24 24" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))' }}>
-                          <path d="M8 5v14l11-7z" fill="white" />
-                        </svg>
-                      </motion.div>
-                    </div>
-                  </button>
-                )}
+              <div className="relative w-full bg-black" style={{ aspectRatio: '9/16' }}>
+                <video
+                  src={card.src}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  controls
+                  playsInline
+                  controlsList="nodownload"
+                />
               </div>
               <div className="bg-yellow-400 px-4 py-3 text-center group-hover:bg-yellow-300 transition-colors flex items-center justify-center min-h-[60px]">
                 <p className="text-slate-900 font-bold text-sm leading-tight">{card.title}</p>
