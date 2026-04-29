@@ -75,7 +75,7 @@ const App = () => {
 
     {/* ── HERO HEADER ── */}
     <div className="bg-gray-900 text-white py-4 px-6 md:px-16 lg:px-28 flex items-center justify-center gap-8 border-b-4 border-accent">
-      <h1 className="font-display text-2xl md:text-3xl tracking-wider font-bold">"Image Authority Blueprint" Workshop</h1>
+      <h1 className="font-display text-base md:text-lg tracking-wider font-bold">"Image Authority Blueprint" Workshop</h1>
       <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
