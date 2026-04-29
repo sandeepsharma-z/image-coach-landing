@@ -331,8 +331,8 @@ const App = () => {
             transition={{ delay: 0 }}
             className="text-center"
           >
-            <p className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-yellow-400 mb-2 md:mb-3">3.7M+</p>
-            <p className="text-white text-xs sm:text-sm uppercase tracking-widest font-medium">Following</p>
+            <p className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-yellow-400 mb-2 md:mb-3">143K</p>
+            <p className="text-white text-xs sm:text-sm uppercase tracking-widest font-medium">Followers</p>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -341,8 +341,8 @@ const App = () => {
             transition={{ delay: 0.1 }}
             className="text-center"
           >
-            <p className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-yellow-400 mb-2 md:mb-3">2M+</p>
-            <p className="text-white text-xs sm:text-sm uppercase tracking-widest font-medium">Lives Changed</p>
+            <p className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-yellow-400 mb-2 md:mb-3">436</p>
+            <p className="text-white text-xs sm:text-sm uppercase tracking-widest font-medium">Posts</p>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -351,8 +351,8 @@ const App = () => {
             transition={{ delay: 0.2 }}
             className="text-center"
           >
-            <p className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-yellow-400 mb-2 md:mb-3">30Cr+</p>
-            <p className="text-white text-xs sm:text-sm uppercase tracking-widest font-medium">Revenue Generated In Last 36 Months</p>
+            <p className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-yellow-400 mb-2 md:mb-3">442</p>
+            <p className="text-white text-xs sm:text-sm uppercase tracking-widest font-medium">Following</p>
           </motion.div>
         </div>
       </div>
