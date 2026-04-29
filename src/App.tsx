@@ -75,7 +75,7 @@ const App = () => {
 
     {/* ── HERO HEADER ── */}
     <div className="bg-gray-900 text-white py-4 px-6 md:px-16 lg:px-28 flex items-center justify-center gap-8 border-b-4 border-accent">
-      <h1 className="font-display text-2xl md:text-3xl tracking-wider font-bold">"Image Authority Blueprint" Workshop</h1>
+      <h1 className="font-display text-lg md:text-xl tracking-wider font-bold">"Image Authority Blueprint" Workshop</h1>
       <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -92,7 +92,7 @@ const App = () => {
     </div>
 
     {/* ── MAIN HERO ── */}
-    <section className="bg-white text-gray-900 px-6 md:px-16 lg:px-28 py-8 md:py-12 relative overflow-hidden"
+    <section className="bg-white text-gray-900 px-3 sm:px-6 md:px-16 lg:px-28 py-6 sm:py-8 md:py-12 relative overflow-hidden"
       style={{
         backgroundImage: `
           radial-gradient(circle, rgba(0,0,0,0.05) 1.5px, transparent 1.5px)
@@ -100,15 +100,15 @@ const App = () => {
         backgroundSize: '30px 30px',
       }}
     >
-      <div className="flex justify-center mb-6">
-        <div className="inline-block bg-red-100 border-2 border-red-500 rounded-full px-5 py-1.5 text-center">
-          <p className="text-red-600 text-xs md:text-sm font-bold tracking-wider">
+      <div className="flex justify-center mb-4 sm:mb-6">
+        <div className="inline-block bg-red-100 border-2 border-red-500 rounded-full px-4 sm:px-5 py-1.5 text-center">
+          <p className="text-red-600 text-[10px] sm:text-xs md:text-sm font-bold tracking-wider">
             Attention: Corporate Women, Entrepreneurs, Professionals
           </p>
         </div>
       </div>
 
-      <h1 className="font-display text-3xl md:text-5xl lg:text-6xl leading-tight text-center mb-4 max-w-4xl mx-auto font-bold">
+      <h1 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl leading-tight text-center mb-4 max-w-4xl mx-auto font-bold">
         <span className="text-green-600">Transform Your Image</span>
         <br />
         <span className="text-black">Build Your Authority</span>
@@ -116,31 +116,31 @@ const App = () => {
         <span className="text-green-600">In Just 90 Days</span>
       </h1>
 
-      <p className="text-center text-gray-700 text-base md:text-lg max-w-2xl mx-auto mb-10 font-medium">
+      <p className="text-center text-gray-700 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-8 sm:mb-10 font-medium">
         Working Just 3 Hours A Week | Even Without Professional Styling Experience
       </p>
 
-      <div className="grid md:grid-cols-[1.2fr_1fr] gap-10 items-start max-w-5xl mx-auto mt-12 md:mt-16">
+      <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-6 md:gap-10 items-start max-w-5xl mx-auto mt-8 sm:mt-12 md:mt-16">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="flex justify-center"
+          className="flex justify-center order-2 md:order-1"
         >
-          <div className="relative" style={{ overflow: "visible", paddingTop: "45px" }}>
-            <div className="w-64 h-64 md:w-72 md:h-72 rounded-full bg-gray-900 shadow-2xl overflow-visible relative mx-auto" style={{ marginTop: "-45px", border: "8px solid #9ca3af" }}>
+          <div className="relative" style={{ overflow: "visible", paddingTop: "30px" }}>
+            <div className="w-48 sm:w-56 md:w-64 lg:w-72 aspect-square rounded-full bg-gray-900 shadow-2xl overflow-visible relative mx-auto" style={{ marginTop: "-30px", border: "6px sm:border-8 solid #9ca3af" }}>
               <img
                 src="/assets/IMG_9903-Photoroom.png"
                 alt="Nilima Sethia"
-                className="absolute w-full"
-                style={{ height: "140%", top: "-30px", left: "0", objectFit: "cover", objectPosition: "center 45%" }}
+                className="absolute w-full h-full"
+                style={{ objectFit: "cover", objectPosition: "center 45%" }}
               />
             </div>
 
-            <div className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-12 py-5 rounded-2xl text-center w-96 shadow-xl border border-gray-800">
-              <p className="font-display text-4xl font-bold text-yellow-400 mb-2">NILIMA SETHIA</p>
-              <p className="text-xs font-semibold text-white mb-1">Founder & Image Authority Coach</p>
-              <p className="text-[11px] text-gray-400">7+ Years | 120+ Transformations</p>
+            <div className="absolute -bottom-12 sm:-bottom-16 md:-bottom-20 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-4 sm:px-8 md:px-12 py-3 sm:py-5 rounded-xl sm:rounded-2xl text-center w-[90%] sm:w-80 md:w-96 shadow-xl border border-gray-800">
+              <p className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-yellow-400 mb-1 sm:mb-2">NILIMA SETHIA</p>
+              <p className="text-[10px] sm:text-xs font-semibold text-white mb-0.5 sm:mb-1">Founder & Image Authority Coach</p>
+              <p className="text-[9px] sm:text-[11px] text-gray-400">7+ Years | 120+ Transformations</p>
             </div>
           </div>
         </motion.div>
@@ -149,10 +149,10 @@ const App = () => {
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="flex flex-col gap-4"
+          className="flex flex-col gap-4 mt-16 sm:mt-12 md:mt-0 order-1 md:order-2"
         >
           {/* Workshop Details Grid */}
-            <div className="grid grid-cols-2 gap-4 mt-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-4 md:mt-8">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
