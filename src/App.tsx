@@ -316,8 +316,8 @@ const App = () => {
         </div>
       </div>
 
-      <div className="bg-gray-950 px-6 md:px-16 lg:px-28 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-20 max-w-5xl mx-auto">
+      <div className="bg-gray-950 px-6 md:px-16 lg:px-28 py-8 md:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-20 max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -325,8 +325,8 @@ const App = () => {
             transition={{ delay: 0 }}
             className="text-center"
           >
-            <p className="font-display text-6xl md:text-7xl font-bold text-yellow-400 mb-3">3.7M+</p>
-            <p className="text-white text-sm uppercase tracking-widest font-medium">Following</p>
+            <p className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-yellow-400 mb-2 md:mb-3">3.7M+</p>
+            <p className="text-white text-xs sm:text-sm uppercase tracking-widest font-medium">Following</p>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -335,8 +335,8 @@ const App = () => {
             transition={{ delay: 0.1 }}
             className="text-center"
           >
-            <p className="font-display text-6xl md:text-7xl font-bold text-yellow-400 mb-3">2M+</p>
-            <p className="text-white text-sm uppercase tracking-widest font-medium">Lives Changed</p>
+            <p className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-yellow-400 mb-2 md:mb-3">2M+</p>
+            <p className="text-white text-xs sm:text-sm uppercase tracking-widest font-medium">Lives Changed</p>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -345,8 +345,8 @@ const App = () => {
             transition={{ delay: 0.2 }}
             className="text-center"
           >
-            <p className="font-display text-6xl md:text-7xl font-bold text-yellow-400 mb-3">30Cr+</p>
-            <p className="text-white text-sm uppercase tracking-widest font-medium">Revenue Generated In Last 36 Months</p>
+            <p className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-yellow-400 mb-2 md:mb-3">30Cr+</p>
+            <p className="text-white text-xs sm:text-sm uppercase tracking-widest font-medium">Revenue Generated In Last 36 Months</p>
           </motion.div>
         </div>
       </div>
