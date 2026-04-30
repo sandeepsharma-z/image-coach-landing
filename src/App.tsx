@@ -1728,7 +1728,6 @@ const App = () => {
             "/assets/hero-3.jpg",
             "/assets/hero-4.jpg",
             "/assets/IMG_9904.jpg",
-            "/assets/evolvere7-portrait.jpg",
             "/assets/stylist-portrait.jpg",
           ].map((image, i) => (
             <motion.div
@@ -1750,7 +1749,6 @@ const App = () => {
             "/assets/hero-3.jpg",
             "/assets/hero-4.jpg",
             "/assets/IMG_9904.jpg",
-            "/assets/evolvere7-portrait.jpg",
             "/assets/stylist-portrait.jpg",
           ].map((image, i) => (
             <motion.div
