@@ -1,6 +1,9 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Check, Star, Calendar, Clock, Video, Globe, CheckCircle, Volume2, X, Briefcase, Zap, Sparkles, Home, Dumbbell, BookOpen, ChevronDown } from "lucide-react";
+import coach1 from "@/assets/coach-1.jpg";
+import coach2 from "@/assets/coach-2.jpg";
+import coach3 from "@/assets/coach-3.jpg";
 
 const FAQItem = ({ question, answer, isOpen, onToggle }) => {
   return (
@@ -553,24 +556,24 @@ const App = () => {
           <div className="marquee-wrapper">
             <div className="marquee-scroll">
               {[
-                { name: "PRIYA SINGH", title: "CORPORATE EXECUTIVE", earnings: "₹50L+", desc: "Clients now approach me for opportunities", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop" },
-                { name: "RAJESHWARI PATEL", title: "ENTREPRENEUR", earnings: "₹2.5L+/M", desc: "Image transformed, business doubled", image: "https://images.unsplash.com/photo-1507741957456-9c6e6de97d11?w=150&h=150&fit=crop" },
-                { name: "MEERA GUPTA", title: "CONSULTANT", earnings: "₹1.5L+/M", desc: "Authority status in my industry now", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop" },
-                { name: "DIVYA SHARMA", title: "FREELANCER", earnings: "₹3.2L+", desc: "Finally charging what I deserve", image: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=150&h=150&fit=crop" },
-                { name: "ANJALI DESAI", title: "BUSINESS OWNER", earnings: "₹4L+/M", desc: "My presence attracts the right clients", image: "https://images.unsplash.com/photo-1506330557241-b06faf00568b?w=150&h=150&fit=crop" },
-                { name: "NEHA KAPOOR", title: "COACH", earnings: "₹2.8L+/M", desc: "Brand positioning completely changed", image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=150&h=150&fit=crop" },
-                { name: "PRIYA SINGH", title: "CORPORATE EXECUTIVE", earnings: "₹50L+", desc: "Clients now approach me for opportunities", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop" },
-                { name: "RAJESHWARI PATEL", title: "ENTREPRENEUR", earnings: "₹2.5L+/M", desc: "Image transformed, business doubled", image: "https://images.unsplash.com/photo-1507741957456-9c6e6de97d11?w=150&h=150&fit=crop" },
-                { name: "MEERA GUPTA", title: "CONSULTANT", earnings: "₹1.5L+/M", desc: "Authority status in my industry now", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop" },
-                { name: "DIPIT PATEL", title: "BARODA", earnings: "17L", desc: "Personal brand to business", image: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=150&h=150&fit=crop" },
-                { name: "SHRUTI SHARMA", title: "ENTREPRENEUR", earnings: "2.5L+", desc: "Scaled business through image", image: "https://images.unsplash.com/photo-1506330557241-b06faf00568b?w=150&h=150&fit=crop" },
-                { name: "ANJALI VERMA", title: "CONSULTANT", earnings: "3L+", desc: "Authority in 90 days", image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=150&h=150&fit=crop" },
-                { name: "DR NEHA ARORA", title: "MEDICAL DOCTOR", earnings: "50L", desc: "Transformed practice in 6 months", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop" },
-                { name: "DR. AMRUTHA", title: "MBBS, MD", earnings: "1L+/2M", desc: "From clinic to digital presence", image: "https://images.unsplash.com/photo-1507741957456-9c6e6de97d11?w=150&h=150&fit=crop" },
-                { name: "GEETHA", title: "HOME-MAKER", earnings: "1.48L", desc: "Built income while at home", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop" },
-                { name: "DIPIT PATEL", title: "BARODA", earnings: "17L", desc: "Personal brand to business", image: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=150&h=150&fit=crop" },
-                { name: "SHRUTI SHARMA", title: "ENTREPRENEUR", earnings: "2.5L+", desc: "Scaled business through image", image: "https://images.unsplash.com/photo-1506330557241-b06faf00568b?w=150&h=150&fit=crop" },
-                { name: "ANJALI VERMA", title: "CONSULTANT", earnings: "3L+", desc: "Authority in 90 days", image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=150&h=150&fit=crop" },
+                { name: "PRIYA SINGH", title: "CORPORATE EXECUTIVE", earnings: "₹50L+", desc: "Clients now approach me for opportunities", image: coach1 },
+                { name: "RAJESHWARI PATEL", title: "ENTREPRENEUR", earnings: "₹2.5L+/M", desc: "Image transformed, business doubled", image: coach2 },
+                { name: "MEERA GUPTA", title: "CONSULTANT", earnings: "₹1.5L+/M", desc: "Authority status in my industry now", image: coach3 },
+                { name: "DIVYA SHARMA", title: "FREELANCER", earnings: "₹3.2L+", desc: "Finally charging what I deserve", image: coach1 },
+                { name: "ANJALI DESAI", title: "BUSINESS OWNER", earnings: "₹4L+/M", desc: "My presence attracts the right clients", image: coach2 },
+                { name: "NEHA KAPOOR", title: "COACH", earnings: "₹2.8L+/M", desc: "Brand positioning completely changed", image: coach3 },
+                { name: "PRIYA SINGH", title: "CORPORATE EXECUTIVE", earnings: "₹50L+", desc: "Clients now approach me for opportunities", image: coach1 },
+                { name: "RAJESHWARI PATEL", title: "ENTREPRENEUR", earnings: "₹2.5L+/M", desc: "Image transformed, business doubled", image: coach2 },
+                { name: "MEERA GUPTA", title: "CONSULTANT", earnings: "₹1.5L+/M", desc: "Authority status in my industry now", image: coach3 },
+                { name: "DIPIT PATEL", title: "BARODA", earnings: "17L", desc: "Personal brand to business", image: coach1 },
+                { name: "SHRUTI SHARMA", title: "ENTREPRENEUR", earnings: "2.5L+", desc: "Scaled business through image", image: coach2 },
+                { name: "ANJALI VERMA", title: "CONSULTANT", earnings: "3L+", desc: "Authority in 90 days", image: coach3 },
+                { name: "DR NEHA ARORA", title: "MEDICAL DOCTOR", earnings: "50L", desc: "Transformed practice in 6 months", image: coach1 },
+                { name: "DR. AMRUTHA", title: "MBBS, MD", earnings: "1L+/2M", desc: "From clinic to digital presence", image: coach2 },
+                { name: "GEETHA", title: "HOME-MAKER", earnings: "1.48L", desc: "Built income while at home", image: coach3 },
+                { name: "DIPIT PATEL", title: "BARODA", earnings: "17L", desc: "Personal brand to business", image: coach1 },
+                { name: "SHRUTI SHARMA", title: "ENTREPRENEUR", earnings: "2.5L+", desc: "Scaled business through image", image: coach2 },
+                { name: "ANJALI VERMA", title: "CONSULTANT", earnings: "3L+", desc: "Authority in 90 days", image: coach3 },
               ].map((person, i) => (
                 <div key={i} className="success-card">
                   <img
