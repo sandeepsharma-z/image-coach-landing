@@ -149,7 +149,7 @@ const Contact = () => {
             className="bg-background border border-foreground/8 p-8 md:p-12"
           >
             <div className="h-px bg-accent w-12 mb-8" />
-            <h3 className="font-display text-2xl text-foreground mb-1">Apply to Work with Nilima</h3>
+            <h3 className="font-display text-2xl text-foreground mb-1">Apply to Work with Nilima SSethia</h3>
             <p className="font-sans font-light text-muted-foreground text-xs tracking-wide mb-10">
               Or book a free discovery call to ask questions first.
             </p>

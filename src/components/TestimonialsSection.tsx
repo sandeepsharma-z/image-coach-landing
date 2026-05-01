@@ -18,7 +18,7 @@ const testimonials = [
   {
     name: "Manali Shah",
     role: "CA, Ahmedabad",
-    quote: "I had 8 years of experience but kept being passed over. Working with Nilima changed everything. Her expertise helped me understand how perception shapes opportunity — and how to take control of mine. I wholeheartedly recommend her programs.",
+    quote: "I had 8 years of experience but kept being passed over. Working with Nilima SSethia changed everything. Her expertise helped me understand how perception shapes opportunity — and how to take control of mine. I wholeheartedly recommend her programs.",
     avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&q=80",
   },
   {
@@ -30,13 +30,13 @@ const testimonials = [
   {
     name: "Hymavati",
     role: "CEO, Software Business",
-    quote: "The sessions are very detailed and personalised. Nilima genuinely understands the corporate world and what it takes to be taken seriously in it. My presence in board meetings completely transformed. I stopped being talked over and started being heard.",
+    quote: "The sessions are very detailed and personalised. Nilima SSethia genuinely understands the corporate world and what it takes to be taken seriously in it. My presence in board meetings completely transformed. I stopped being talked over and started being heard.",
     avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80",
   },
   {
     name: "Kavita S.",
     role: "Senior Director, Bangalore",
-    quote: "If you are a woman in corporate who is ready for the next level but not being seen that way — this is the program. Nilima does not just style you. She rebuilds the way you carry yourself into every room. I am done being overlooked.",
+    quote: "If you are a woman in corporate who is ready for the next level but not being seen that way — this is the program. Nilima SSethia does not just style you. She rebuilds the way you carry yourself into every room. I am done being overlooked.",
     avatar: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=200&q=80",
   },
 ];

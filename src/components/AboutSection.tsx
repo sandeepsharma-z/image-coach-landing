@@ -98,7 +98,7 @@ const AboutSection = () => (
           href="/about"
           className="btn-slide-hover inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase font-sans border-b border-accent text-foreground px-6 py-2.5 mt-2 transition-colors duration-300"
         >
-          About Nilima <ArrowUpRight size={13} />
+          About Nilima SSethia <ArrowUpRight size={13} />
         </a>
       </motion.div>
 

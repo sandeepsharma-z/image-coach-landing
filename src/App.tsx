@@ -143,7 +143,7 @@ const App = () => {
             <div className="w-64 h-64 md:w-72 md:h-72 rounded-full bg-gray-900 shadow-2xl overflow-visible relative mx-auto" style={{ marginTop: "-45px", border: "8px solid #9ca3af" }}>
               <img
                 src="/assets/IMG_9903-Photoroom.png"
-                alt="Nilima Sethia"
+                alt="Nilima SSethia Sethia"
                 className="absolute w-full"
                 style={{ height: "140%", top: "-30px", left: "0", objectFit: "cover", objectPosition: "center 45%" }}
               />
@@ -1374,7 +1374,7 @@ const App = () => {
             className="text-white flex flex-col justify-center h-full md:-ml-6 order-1 md:order-2"
           >
             <p className="text-sm md:text-base tracking-widest uppercase text-white mb-3 md:mb-2 font-light">Meet Your Coach</p>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6 md:mb-8 text-yellow-400 font-bold">Nilima Sethia</h2>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6 md:mb-8 text-yellow-400 font-bold">Nilima SSethia Sethia</h2>
 
             <div className="space-y-3 md:space-y-4 mb-8 md:mb-10 text-white/95 text-sm md:text-base">
               <div className="flex items-start gap-3">
@@ -1858,7 +1858,7 @@ const App = () => {
             },
             {
               question: "Is this a live workshop or pre-recorded?",
-              answer: "The workshop includes both pre-recorded modules for flexibility and live Q&A sessions with Nilima for personalized guidance. This hybrid approach gives you the best of both worlds - convenience and direct interaction."
+              answer: "The workshop includes both pre-recorded modules for flexibility and live Q&A sessions with Nilima SSethia for personalized guidance. This hybrid approach gives you the best of both worlds - convenience and direct interaction."
             },
             {
               question: "How is this workshop different from free YouTube videos on styling?",
@@ -1866,7 +1866,7 @@ const App = () => {
             },
             {
               question: "How interactive is the workshop? Can I ask specific questions?",
-              answer: "Very interactive! You'll have access to live Q&A sessions, our private community group, and direct messaging options. You can ask any questions and get personalized guidance from Nilima and our team throughout the 90 days."
+              answer: "Very interactive! You'll have access to live Q&A sessions, our private community group, and direct messaging options. You can ask any questions and get personalized guidance from Nilima SSethia and our team throughout the 90 days."
             }
           ].map((faq, i) => (
             <motion.div

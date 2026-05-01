@@ -163,7 +163,7 @@ const WhoIAmSlider = () => {
       {/* Header */}
       <div className="px-6 md:px-16 lg:px-28 mb-10 flex items-center justify-between">
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <span className="text-xs tracking-[0.3em] uppercase font-sans text-foreground/70 mb-4 block">About Nilima</span>
+          <span className="text-xs tracking-[0.3em] uppercase font-sans text-foreground/70 mb-4 block">About Nilima SSethia</span>
           <h2 className="font-display text-3xl md:text-5xl text-foreground">Things That I Am</h2>
         </motion.div>
         {/* Arrow right */}
@@ -254,7 +254,7 @@ const About = () => {
         {/* Background image — full bleed, grayscale */}
         <img
           src={stylistImg}
-          alt="Nilima — Image and Presence Coach"
+          alt="Nilima SSethia — Image and Presence Coach"
           className="absolute inset-0 w-full h-full object-cover object-top grayscale"
         />
 
@@ -282,7 +282,7 @@ const About = () => {
               className="font-display text-white leading-none uppercase"
               style={{ fontSize: "80px", letterSpacing: "-0.02em" }}
             >
-              Nilima
+              Nilima SSethia
             </h1>
           </motion.div>
 
@@ -332,7 +332,7 @@ const About = () => {
             viewport={{ once: true }}
             className="text-xs tracking-[0.3em] uppercase font-sans text-primary-foreground/50 mb-8"
           >
-            Hi, I'm Nilima!
+            Hi, I'm Nilima SSethia!
           </motion.p>
 
           <motion.h2

@@ -239,7 +239,7 @@ const Services = () => (
         >
           <img
             src={mentorImg}
-            alt="Meet Your Mentor — Nilima"
+            alt="Meet Your Mentor — Nilima SSethia"
             className="w-full h-[420px] md:h-[500px] object-cover object-top"
           />
         </motion.div>
@@ -262,9 +262,9 @@ const Services = () => (
           </div>
 
           <p className="font-sans font-light text-muted-foreground text-sm leading-relaxed mb-8 max-w-sm">
-            Nilima is a Personal Brand Strategist, Presence Coach and Founder of{" "}
+            Nilima SSethia is a Personal Brand Strategist, Presence Coach and Founder of{" "}
             <strong className="font-medium text-foreground">Evolvere7</strong>{" "}
-            who empowers corporate women and female founders to build image authority for maximum impact and income. With Nilima's guidance and the{" "}
+            who empowers corporate women and female founders to build image authority for maximum impact and income. With Nilima SSethia's guidance and the{" "}
             <strong className="font-medium text-foreground">Evolvere7 Presence Framework™</strong>
             , commanding the room becomes not just a possibility, but your new reality.
           </p>
@@ -273,7 +273,7 @@ const Services = () => (
             href="/about"
             className="inline-flex items-center gap-2 w-fit text-xs tracking-[0.2em] uppercase font-sans bg-accent text-accent-foreground px-8 py-3.5 hover:brightness-110 hover:shadow-lg transition-all duration-300"
           >
-            About Nilima <ArrowUpRight size={13} />
+            About Nilima SSethia <ArrowUpRight size={13} />
           </a>
         </motion.div>
 

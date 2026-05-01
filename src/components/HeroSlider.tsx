@@ -19,7 +19,7 @@ const slides = [
     image: hero2,
     title: "You did the work.\nNow look the part.",
     tag: "For Corporate Women and Female Founders",
-    buttons: [{ label: "About Nilima", variant: "gold" as const }],
+    buttons: [{ label: "About Nilima SSethia", variant: "gold" as const }],
   },
   {
     image: hero3,

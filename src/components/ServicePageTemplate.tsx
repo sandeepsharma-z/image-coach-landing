@@ -125,7 +125,7 @@ const ServicePageTemplate = ({ badge, heroTitle, heroImg, forWho, steps, faqs }:
       <section className="bg-[#f5f4f0] overflow-hidden">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 items-center">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="overflow-hidden px-10 md:px-14 pt-16 md:pt-20 pb-16 md:pb-20">
-            <img src={mentorImg} alt="Meet Your Mentor — Nilima" className="w-full h-[420px] md:h-[500px] object-cover object-top" />
+            <img src={mentorImg} alt="Meet Your Mentor — Nilima SSethia" className="w-full h-[420px] md:h-[500px] object-cover object-top" />
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }} className="flex flex-col justify-center py-16 md:py-20 pr-10 md:pr-16 lg:pr-20 pl-4 md:pl-2">
             <h2 className="mentor-heading-offset font-display text-4xl md:text-5xl lg:text-6xl leading-none text-foreground uppercase mb-10 tracking-tight">
@@ -136,14 +136,14 @@ const ServicePageTemplate = ({ badge, heroTitle, heroImg, forWho, steps, faqs }:
               <span className="text-xs tracking-[0.3em] uppercase font-sans text-foreground/50">The Visionary</span>
             </div>
             <p className="font-sans font-light text-muted-foreground text-sm leading-relaxed mb-8 max-w-sm">
-              Nilima is a Personal Brand Strategist, Presence Coach and Founder of{" "}
+              Nilima SSethia is a Personal Brand Strategist, Presence Coach and Founder of{" "}
               <strong className="font-medium text-foreground">Evolvere7</strong>{" "}
-              who empowers corporate women and female founders to build image authority for maximum impact and income. With Nilima's guidance and the{" "}
+              who empowers corporate women and female founders to build image authority for maximum impact and income. With Nilima SSethia's guidance and the{" "}
               <strong className="font-medium text-foreground">Evolvere7 Presence Framework™</strong>
               , commanding the room becomes not just a possibility, but your new reality.
             </p>
             <a href="/about" className="inline-flex items-center gap-2 w-fit text-xs tracking-[0.2em] uppercase font-sans bg-accent text-accent-foreground px-8 py-3.5 hover:brightness-110 hover:shadow-lg transition-all duration-300">
-              About Nilima <ArrowUpRight size={13} />
+              About Nilima SSethia <ArrowUpRight size={13} />
             </a>
           </motion.div>
         </div>
