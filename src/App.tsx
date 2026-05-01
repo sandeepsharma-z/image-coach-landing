@@ -1222,7 +1222,7 @@ const App = () => {
               </div>
             </div>
             <div className="bg-gray-900 text-white rounded-2xl p-10 pt-16">
-              <img src="/assets/bf33.jpg" alt="Before" className="w-full h-64 object-cover rounded-lg mb-6" />
+              <img src="/assets/bf33.jpg" alt="Before" className="w-full h-64 object-cover object-left rounded-lg mb-6" />
               <h3 className="text-center text-2xl font-bold text-red-500 mb-8">BEFORE</h3>
               <div className="space-y-4">
                 {[
@@ -1263,7 +1263,7 @@ const App = () => {
               </div>
             </div>
             <div className="bg-gradient-to-br from-green-900 to-green-800 text-white rounded-2xl p-10 pt-16">
-              <img src="/assets/ba2.jpg" alt="After" className="w-full h-64 object-cover rounded-lg mb-6" />
+              <img src="/assets/ba2.jpg" alt="After" className="w-full h-64 object-cover object-right rounded-lg mb-6" />
               <h3 className="text-center text-2xl font-bold text-green-400 mb-8">AFTER</h3>
               <div className="space-y-4">
                 {[
