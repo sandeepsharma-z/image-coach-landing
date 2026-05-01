@@ -566,23 +566,23 @@ const App = () => {
             <div className="marquee-scroll">
               {[
                 { name: "PRIYA SINGH", title: "CORPORATE EXECUTIVE", earnings: "₹50L+", desc: "Clients now approach me for opportunities", image: review1 },
-                { name: "RAJESHWARI PATEL", title: "ENTREPRENEUR", earnings: "₹2.5L+/M", desc: "Image transformed, business doubled", image: review2 },
-                { name: "MEERA GUPTA", title: "CONSULTANT", earnings: "₹1.5L+/M", desc: "Authority status in my industry now", image: review3 },
-                { name: "DIVYA SHARMA", title: "FREELANCER", earnings: "₹3.2L+", desc: "Finally charging what I deserve", image: review4 },
+                { name: "ARJUN PATEL", title: "ENTREPRENEUR", earnings: "₹2.5L+/M", desc: "Image transformed, business doubled", image: review2 },
+                { name: "AMAR GUPTA", title: "CONSULTANT", earnings: "₹1.5L+/M", desc: "Authority status in my industry now", image: review3 },
+                { name: "RAHUL SHARMA", title: "FREELANCER", earnings: "₹3.2L+", desc: "Finally charging what I deserve", image: review4 },
                 { name: "ANJALI DESAI", title: "BUSINESS OWNER", earnings: "₹4L+/M", desc: "My presence attracts the right clients", image: review5 },
                 { name: "NEHA KAPOOR", title: "COACH", earnings: "₹2.8L+/M", desc: "Brand positioning completely changed", image: review6 },
                 { name: "PRIYA SINGH", title: "CORPORATE EXECUTIVE", earnings: "₹50L+", desc: "Clients now approach me for opportunities", image: review7 },
-                { name: "RAJESHWARI PATEL", title: "ENTREPRENEUR", earnings: "₹2.5L+/M", desc: "Image transformed, business doubled", image: review8 },
-                { name: "MEERA GUPTA", title: "CONSULTANT", earnings: "₹1.5L+/M", desc: "Authority status in my industry now", image: review9 },
+                { name: "ROHAN PATEL", title: "ENTREPRENEUR", earnings: "₹2.5L+/M", desc: "Image transformed, business doubled", image: review8 },
+                { name: "VIKRAM GUPTA", title: "CONSULTANT", earnings: "₹1.5L+/M", desc: "Authority status in my industry now", image: review9 },
                 { name: "DIPIT PATEL", title: "BARODA", earnings: "17L", desc: "Personal brand to business", image: review1 },
-                { name: "SHRUTI SHARMA", title: "ENTREPRENEUR", earnings: "2.5L+", desc: "Scaled business through image", image: review2 },
-                { name: "ANJALI VERMA", title: "CONSULTANT", earnings: "3L+", desc: "Authority in 90 days", image: review3 },
-                { name: "DR NEHA ARORA", title: "MEDICAL DOCTOR", earnings: "50L", desc: "Transformed practice in 6 months", image: review4 },
+                { name: "ROHAN SHARMA", title: "ENTREPRENEUR", earnings: "2.5L+", desc: "Scaled business through image", image: review2 },
+                { name: "VIKRAM VERMA", title: "CONSULTANT", earnings: "3L+", desc: "Authority in 90 days", image: review3 },
+                { name: "DR. AMAR ARORA", title: "MEDICAL DOCTOR", earnings: "50L", desc: "Transformed practice in 6 months", image: review4 },
                 { name: "DR. AMRUTHA", title: "MBBS, MD", earnings: "1L+/2M", desc: "From clinic to digital presence", image: review5 },
                 { name: "GEETHA", title: "HOME-MAKER", earnings: "1.48L", desc: "Built income while at home", image: review6 },
                 { name: "DIPIT PATEL", title: "BARODA", earnings: "17L", desc: "Personal brand to business", image: review7 },
-                { name: "SHRUTI SHARMA", title: "ENTREPRENEUR", earnings: "2.5L+", desc: "Scaled business through image", image: review8 },
-                { name: "ANJALI VERMA", title: "CONSULTANT", earnings: "3L+", desc: "Authority in 90 days", image: review9 },
+                { name: "ARJUN SHARMA", title: "ENTREPRENEUR", earnings: "2.5L+", desc: "Scaled business through image", image: review8 },
+                { name: "ADITYA VERMA", title: "CONSULTANT", earnings: "3L+", desc: "Authority in 90 days", image: review9 },
               ].map((person, i) => (
                 <div key={i} className="success-card">
                   <img
